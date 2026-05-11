@@ -1,0 +1,64 @@
+---
+
+---
+
+<section class="hero">
+  <span class="status"><span class="dot"></span>Open to work</span>
+  <h1>Hi, I'm Sakshi &mdash; a product designer turning complex problems into calm, structured experiences.</h1>
+  <p>Currently designing experiences at <a href="https://juspay.io" target="_blank" rel="noopener" class="highlight">Juspay</a>. I believe that great design goes beyond interfaces, diving into intention &amp; detail makes the experience truly exceptional.</p>
+  <p>Based in Bengaluru. Reach me at <a href="mailto:hello@sakshi.in">hello@sakshi.in</a>.</p>
+</section>
+
+<style>
+  .hero { padding: var(--space-88) 0 var(--space-72); }
+  h1 {
+    font-size: var(--text-hero-heading);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-heading);
+    margin-bottom: var(--space-22);
+  }
+  p {
+    font-size: var(--text-body);
+    color: var(--ink-2);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-14);
+  }
+  p a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color var(--ease-default), border-color var(--ease-default);
+  }
+  p a:hover { color: var(--accent); border-color: var(--accent); }
+  p a.highlight { color: var(--accent); border-color: var(--accent); }
+  .status {
+    margin-bottom: var(--space-14);
+    display: inline-flex; align-items: center; gap: var(--space-8);
+    font-size: var(--text-md); color: var(--muted);
+  }
+  .dot {
+    width: 7px; height: 7px;
+    background: var(--success); border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .dot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--success);
+    animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes dot-pulse {
+    0%   { transform: scale(1);   opacity: 0.55; }
+    70%  { transform: scale(2.6); opacity: 0; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: var(--space-56) 0 var(--space-48); }
+    h1 { font-size: 22px; }
+  }
+</style>

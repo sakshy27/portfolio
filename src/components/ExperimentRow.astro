@@ -1,0 +1,74 @@
+---
+interface Props {
+  href: string;
+  num: string;
+  title: string;
+  desc: string;
+  stack: string;
+}
+
+const { href, num, title, desc, stack } = Astro.props;
+---
+
+<a href={href} class="exp">
+  <span class="e-num">{num}</span>
+  <div class="e-body">
+    <div class="e-title">{title}</div>
+    <div class="e-desc">{desc}</div>
+  </div>
+  <span class="e-stack">{stack}</span>
+  <span class="e-arrow">&rarr;</span>
+</a>
+
+<style>
+  .exp {
+    display: grid;
+    grid-template-columns: 56px 1fr auto 24px;
+    gap: var(--space-18);
+    padding: var(--space-16) 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+    transition: padding var(--ease-default);
+  }
+  .exp:hover { padding-left: var(--space-6); }
+  .exp:hover .e-title { color: var(--accent); }
+  .exp:hover .e-arrow { color: var(--accent); transform: translateX(3px); }
+  .e-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .e-body { min-width: 0; }
+  .e-title {
+    font-size: var(--text-exp-title);
+    font-weight: var(--weight-medium);
+    color: var(--ink);
+    margin-bottom: 2px;
+    transition: color var(--ease-default);
+  }
+  .e-desc {
+    font-size: var(--text-exp-desc);
+    color: var(--muted);
+    line-height: var(--leading-exp);
+  }
+  .e-stack {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .e-arrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted-2);
+    transition: color var(--ease-default), transform var(--ease-default);
+  }
+
+  @media (max-width: 600px) {
+    .exp { grid-template-columns: 44px 1fr 18px; gap: var(--space-12); }
+    .e-stack { display: none; }
+  }
+</style>

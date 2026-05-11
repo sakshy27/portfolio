@@ -1,0 +1,79 @@
+---
+
+---
+
+<footer id="connect">
+  <div class="wrap">
+    <h3>Have a problem worth <span class="accent">designing?</span><br>Let's connect.</h3>
+
+    <a href="mailto:hello@sakshi.in" class="email-hero">hello@sakshi.in<span class="arrow">&#8599;</span></a>
+
+    <div class="footer-end">
+      <span>&copy; 2025 &middot; Sakshi Gupta</span>
+      <div class="socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">read.cv</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: var(--space-88) 0 var(--space-56);
+    margin-top: var(--space-56);
+    border-top: 1px solid var(--line);
+  }
+  h3 {
+    font-size: var(--text-footer-heading);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tighter);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-32);
+    max-width: 620px;
+  }
+  .accent { color: var(--accent); }
+  .email-hero {
+    display: inline-block;
+    font-size: var(--text-email);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tighter);
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin: var(--space-8) 0 var(--space-48);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: var(--space-6);
+    transition: color var(--ease-smooth), border-color var(--ease-smooth);
+  }
+  .email-hero .arrow {
+    font-family: var(--font-mono);
+    font-size: 0.6em;
+    margin-left: 12px;
+    vertical-align: 0.2em;
+    color: var(--muted-2);
+    display: inline-block;
+    transition: transform var(--ease-email), color var(--ease-smooth);
+  }
+  .email-hero:hover { color: var(--accent); border-color: var(--accent); }
+  .email-hero:hover .arrow { color: var(--accent); transform: translate(4px, -4px); }
+  .footer-end {
+    margin-top: var(--space-32);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: var(--space-14);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .socials { display: flex; gap: var(--space-18); }
+  .socials a { color: var(--muted); transition: color var(--ease-default); }
+  .socials a:hover { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    footer { padding: var(--space-56) 0 var(--space-48); }
+  }
+</style>

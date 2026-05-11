@@ -1,0 +1,87 @@
+/* ─────────────────────────────────────────────
+   Design Tokens — V1 Editorial Studio
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Color */
+  --bg: #FFFFFF;
+  --ink: #0E0E10;
+  --ink-2: #3C3C42;
+  --muted: #8A8A92;
+  --muted-2: #B5B5BB;
+  --line: #ECECEE;
+  --line-2: #F4F4F6;
+  --accent: #006FC9;
+  --success: #00A36C;
+
+  /* Typography — families */
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  /* Typography — sizes */
+  --text-xs: 10px;
+  --text-sm: 11px;
+  --text-base: 15px;
+  --text-md: 13px;
+  --text-body: 15.5px;
+  --text-desc: 14.5px;
+  --text-exp-title: 15.5px;
+  --text-exp-desc: 13.5px;
+  --text-nav: 14.5px;
+  --text-work-title: 22px;
+  --text-hero-heading: 26px;
+  --text-footer-heading: clamp(26px, 3.4vw, 34px);
+  --text-email: clamp(22px, 2.8vw, 28px);
+
+  /* Typography — weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* Typography — tracking */
+  --tracking-tight: -0.015em;
+  --tracking-tighter: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.1em;
+
+  /* Typography — line heights */
+  --leading-tight: 1.2;
+  --leading-heading: 1.25;
+  --leading-body: 1.55;
+  --leading-relaxed: 1.6;
+  --leading-exp: 1.4;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-22: 22px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-72: 72px;
+  --space-88: 88px;
+
+  /* Layout */
+  --max-width: 760px;
+  --page-gutter: 28px;
+  --desc-max-width: 560px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+
+  /* Transitions */
+  --ease-default: 0.2s ease;
+  --ease-smooth: 0.25s ease;
+  --ease-card: 0.35s cubic-bezier(.2, .8, .2, 1);
+  --ease-arrow: 0.25s cubic-bezier(.2, .8, .2, 1);
+  --ease-email: 0.25s cubic-bezier(.2, .8, .2, 1);
+}

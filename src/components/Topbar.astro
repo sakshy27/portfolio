@@ -1,0 +1,40 @@
+---
+
+---
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/" class="name">Sakshi Gupta</a>
+    <div class="links">
+      <a href="/#work">Work</a>
+      <a href="/#connect">Contact</a>
+      <a href="#" class="cta">Resume <span class="arrow">&#8599;</span></a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .topbar { padding: var(--space-28) 0 0; }
+  .topbar .wrap {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: var(--text-nav);
+  }
+  .name { font-weight: var(--weight-medium); }
+  .links { display: flex; gap: var(--space-18); align-items: baseline; }
+  .links a { color: var(--muted); transition: color var(--ease-default); }
+  .links a:hover { color: var(--ink); }
+  .cta {
+    color: var(--ink) !important;
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-4);
+  }
+  .cta:hover { color: var(--accent) !important; }
+  .arrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted-2);
+    transition: color var(--ease-default), transform var(--ease-default);
+  }
+  .cta:hover .arrow { color: var(--accent); transform: translate(2px, -2px); }
+</style>

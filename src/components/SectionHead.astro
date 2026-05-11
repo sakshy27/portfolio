@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  count: string;
+}
+
+const { title, count } = Astro.props;
+---
+
+<div class="sec-head">
+  <h2>{title}</h2>
+  <span class="count">{count}</span>
+</div>
+
+<style>
+  .sec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: var(--space-14);
+    margin-bottom: var(--space-8);
+    border-bottom: 1px solid var(--ink);
+  }
+  h2 {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .count {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
