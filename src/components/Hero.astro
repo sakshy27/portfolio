@@ -3,20 +3,61 @@
 ---
 
 <section class="hero">
-  <span class="status"><span class="dot"></span>Open to work</span>
-  <h1>Hi, I'm Sakshi &mdash; a product designer turning complex problems into calm, structured experiences.</h1>
-  <p>Currently designing experiences at <a href="https://juspay.io" target="_blank" rel="noopener" class="highlight">Juspay</a>. I believe that great design goes beyond interfaces, diving into intention &amp; detail makes the experience truly exceptional.</p>
-  <p>Based in Bengaluru. Reach me at <a href="mailto:hello@sakshi.in">hello@sakshi.in</a>.</p>
+  <div class="avatar">
+    <img src="/images/avatar.png" alt="Sakshi Gupta illustration" width="100" height="100" />
+  </div>
+
+  <h1 class="name">Sakshi Gupta</h1>
+
+  <p>I am a Product Designer based in <span class="highlight">Bengaluru, India <img src="/images/icons/india-flag.svg" alt="" class="inline-icon" aria-hidden="true" /></span></p>
+
+  <p>Currently designing experiences at <a href="https://juspay.io" target="_blank" rel="noopener" class="highlight">Juspay <img src="/images/icons/juspay.svg" alt="" class="inline-icon" aria-hidden="true" /></a> . And this is my tiny corner on the internet where I share my craft and the products I'm building.</p>
+
+  <p>Reach out to me on
+    <a href="https://x.com/sakshi_026" target="_blank" rel="noopener" class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>DMs</a>
+    or email me at
+    <span class="email-wrap">
+      <span class="copy-toast">Copied!</span><a href="mailto:sakshigupta9368@gmail.com" class="chip email-chip" data-email="sakshigupta9368@gmail.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>sakshigupta9368@gmail.com</a><svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></p>
 </section>
 
+<script>
+  const emailWrap = document.querySelector('.email-wrap');
+  const copyIcon = document.querySelector('.email-wrap .copy-icon');
+  if (emailWrap && copyIcon) {
+    copyIcon.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = emailWrap.querySelector('.email-chip')?.getAttribute('data-email');
+      if (email) {
+        navigator.clipboard.writeText(email);
+        const toast = emailWrap.querySelector('.copy-toast');
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 1500);
+        }
+      }
+    });
+  }
+</script>
+
 <style>
-  .hero { padding: var(--space-88) 0 var(--space-72); }
-  h1 {
-    font-size: var(--text-hero-heading);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-heading);
-    margin-bottom: var(--space-22);
+  .hero { padding: var(--space-72) 0 var(--space-48); }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 0 8px;
+    margin-left: -16px;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .name {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 6px;
   }
   p {
     font-size: var(--text-body);
@@ -30,35 +71,79 @@
     padding-bottom: 1px;
     transition: color var(--ease-default), border-color var(--ease-default);
   }
-  p a:hover { color: var(--accent); border-color: var(--accent); }
-  p a.highlight { color: var(--accent); border-color: var(--accent); }
-  .status {
-    margin-bottom: var(--space-14);
-    display: inline-flex; align-items: center; gap: var(--space-8);
-    font-size: var(--text-md); color: var(--muted);
+  p a:not(.chip):hover { color: var(--accent); border-color: var(--accent); }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0px 5px;
+    background: var(--line-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: var(--weight-regular);
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: none;
+    vertical-align: middle;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
-  .dot {
-    width: 7px; height: 7px;
-    background: var(--success); border-radius: 50%;
+  .chip:hover {
+    background: var(--line-2);
+  }
+  .chip svg { flex-shrink: 0; }
+  .email-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     position: relative;
-    flex-shrink: 0;
   }
-  .dot::before {
-    content: '';
+  .copy-icon {
+    opacity: 0;
+    color: var(--muted);
+    cursor: pointer;
+    transition: opacity 0.15s ease, color 0.15s ease;
+  }
+  .email-wrap:hover .copy-icon {
+    opacity: 1;
+  }
+  .copy-icon:hover {
+    color: var(--ink);
+  }
+  .copy-toast {
     position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: var(--success);
-    animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    top: -32px;
+    right: 0;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: var(--weight-medium);
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
   }
-  @keyframes dot-pulse {
-    0%   { transform: scale(1);   opacity: 0.55; }
-    70%  { transform: scale(2.6); opacity: 0; }
-    100% { transform: scale(2.6); opacity: 0; }
+  .copy-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .highlight { color: var(--ink); font-weight: var(--weight-medium); }
+  p a.highlight { border-bottom: none; }
+  .inline-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: -3px;
+    margin-left: 2px;
+    border-radius: 4px;
   }
 
   @media (max-width: 600px) {
     .hero { padding: var(--space-56) 0 var(--space-48); }
-    h1 { font-size: 22px; }
+    .name { font-size: 18px; }
+    .avatar { width: 80px; height: 80px; margin-left: -12px; }
   }
 </style>

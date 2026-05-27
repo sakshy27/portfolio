@@ -1,0 +1,307 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'research', label: 'Research' },
+  { id: 'insights', label: 'Insights' },
+  { id: 'design', label: 'Design' },
+  { id: 'features', label: 'Features' },
+  { id: 'learnings', label: 'Learnings' },
+];
+---
+
+<CaseStudy
+  title="GBOT-X: Simplifying Crypto Trading with a Decentralized Dashboard"
+  kicker="0-1 Product · Work Project · Gemach"
+  description="Designed a one-stop trading dashboard for newly deployed tokens, eliminating the need for users to switch between multiple platforms. Led the design from ideation to execution as a solo designer."
+  role="Solo Designer"
+  timeline="2024"
+  platform="Web + Mobile"
+  context="Freelance · Gemach DAO"
+  sections={sections}
+  nextProject={{ href: "#", title: "Xyne Spaces: Reimagining Ticket Experience" }}
+>
+
+  {/* ─── COVER ─── */}
+  <div class="cs-cover">
+    <img src="/images/gbot-x-cover.png" alt="GBOT-X Gemach Trading Dashboard cover" />
+  </div>
+
+  {/* ═══ OVERVIEW ═══ */}
+  <section class="cs-section" id="overview">
+    <div class="sec-head">
+      <h2>Overview</h2>
+    </div>
+    <div class="cs-body">
+      <h3>About Gemach</h3>
+      <p><strong>Gemach</strong> is a DAO of community experts which provides tools to generate alpha across the DeFi ecosystem.</p>
+
+      <p>Our client currently had a Telegram bot for trading newly deployed tokens but also wanted to expand to a web app to address key gaps and grow their user base.</p>
+
+      <div class="callout">
+        <p>The Telegram bot faced challenges such as <strong>low adoption due to security concerns</strong> and users needing to <strong>switch platforms for information</strong>.</p>
+      </div>
+
+      <h3>Problem Statement</h3>
+      <p>Before trading in newly deployed tokens, users must verify scams, check tokenomics, check socials, assess honeypot risks, review charts, and more across different platforms &mdash; which makes the process tedious and time-consuming.</p>
+
+      <div class="callout-insight">
+        <div class="tag">The Solution</div>
+        <p>A <strong>one-stop solution for trading newly deployed tokens</strong>, consolidating all essential tools and data into a single dashboard, making trading seamless and efficient.</p>
+      </div>
+
+      <h3>My Role</h3>
+      <p>Solo Designer, leading the design from ideation to execution, collaborating with the developer and the client.</p>
+
+      <h3>Target Users</h3>
+      <p>Users engaged in trading of newly deployed tokens.</p>
+
+      <h3>Video Walkthrough</h3>
+      <div class="cs-video">
+        <iframe src="https://www.loom.com/embed/4aaae12203654d49be681aa6eaae0329" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ RESEARCH ═══ */}
+  <section class="cs-section" id="research">
+    <div class="sec-head">
+      <h2>Research</h2>
+    </div>
+    <div class="cs-body">
+      <h3>Building Domain Knowledge</h3>
+      <p>Since I was a complete newbie in the crypto domain, I started by reading articles, watching videos, and taking notes to build a basic understanding.</p>
+
+      <div class="callout">
+        <p>This helped me <strong>ask the right questions when talking to users/client</strong> and <strong>gain deeper insights</strong> into their needs &amp; requirements.</p>
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/01-domain-knowledge.png" alt="Domain knowledge research notes" />
+      </div>
+
+      <h3>Competitor Research</h3>
+      <p>Although there were no direct competitors solving the exact same problem, I looked at indirect competitors in the crypto trading space.</p>
+
+      <div class="callout">
+        <p>This helped me understand <strong>existing design patterns</strong>, what <strong>users were already familiar</strong> with, and how we could <strong>build on those mental models</strong>.</p>
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/02-competitor-research.png" alt="Competitor research analysis" />
+      </div>
+
+      <h3>User Interviews</h3>
+      <p>With the client's help, I connected with users in the crypto trading space to understand their needs and mental model to come up with a user-friendly solution.</p>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/03-user-interviews.png" alt="User interview process" />
+      </div>
+
+      <div class="callout">
+        <p>The goal was to understand <strong>how people trade newly deployed tokens</strong>, their <strong>pain points</strong>, and identify the <strong>factors that influence their decisions</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ INSIGHTS ═══ */}
+  <section class="cs-section" id="insights">
+    <div class="sec-head">
+      <h2>Key Insights &amp; Pain Points</h2>
+    </div>
+    <div class="cs-body">
+      <p>After talking to 5 users, I got many insights that needed to be considered in order to design a user-friendly solution.</p>
+
+      <div class="callout-insight">
+        <div class="tag">Essential Information for Decision-Making</div>
+        <p><strong>1.</strong> Reviewing the token's white paper/tokenomics.</p>
+        <p><strong>2.</strong> Analyzing social media presence and engagement.</p>
+        <p><strong>3.</strong> Checking token data on platforms like CoinMarketCap.</p>
+        <p><strong>4.</strong> Verifying security and ensuring it's not a scam (e.g., using Honeypot checks).</p>
+        <p><strong>5.</strong> Tracking the token's traction and growth over time.</p>
+      </div>
+
+      <h3>Pain Points</h3>
+
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Frequent Platform Switching</strong><br/>Users need to navigate multiple platforms to gather information on newly deployed tokens.</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Missed Opportunities</strong><br/>The fast-moving market makes it hard to gather information in time, leading to missed opportunities.</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Time-Consuming Process</strong><br/>The constant back-and-forth between different platforms slows down the decision-making process.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>After talking to the users, I connected with the client to discuss the insights and to <strong>define the scope for the MVP</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ DESIGN ═══ */}
+  <section class="cs-section" id="design">
+    <div class="sec-head">
+      <h2>Visual Design</h2>
+    </div>
+    <div class="cs-body">
+      <h3>Dashboard Overview</h3>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/04-dashboard-overview.png" alt="Dashboard overview - main trading interface" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/05-dashboard-details.png" alt="Dashboard details - token information and charts" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>Search Functionality</h3>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/11-search.png" alt="Search functionality" />
+      </div>
+
+      <h3>Watchlist</h3>
+      <p>The watchlist remains closed by default and expands when user opens it on intent.</p>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/12-watchlist.png" alt="Watchlist feature" />
+      </div>
+
+      <h3>Withdraw / Deposit</h3>
+      <p>CTA in the bottom left to withdraw and deposit crypto into the wallets.</p>
+      <div class="cs-image-pair">
+        <div class="cs-image">
+          <img src="/images/gbot-x/13-withdraw.png" alt="Withdraw crypto" />
+        </div>
+        <div class="cs-image">
+          <img src="/images/gbot-x/14-deposit.png" alt="Deposit crypto" />
+        </div>
+      </div>
+
+      <h3>Activity Panel</h3>
+      <p>The activity panel expands to show trade history, open orders, and wallet tokens.</p>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/15-activity-panel.png" alt="Activity panel with trade history" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>Product Guided Tour</h3>
+      <p>A guided tour for first-time users, helping them become comfortable with the platform.</p>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/16-tour-prompt.png" alt="Guided tour prompt" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/17-guided-tour.png" alt="Guided tour steps" />
+      </div>
+
+      <h3>Contextual Tooltips</h3>
+      <p>These are contextual tooltips that only appear upon user intent.</p>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/18-contextual-tooltips.png" alt="Contextual tooltips" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>Mobile Designs</h3>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/19-mobile-designs.png" alt="Mobile design screens" />
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ FEATURES ═══ */}
+  <section class="cs-section" id="features">
+    <div class="sec-head">
+      <h2>Key Features</h2>
+    </div>
+    <div class="cs-body">
+      <h3>Feature 1: Multi Buy/Sell of Tokens</h3>
+      <p>This feature allows users to buy/sell multiple tokens in a single trade.</p>
+
+      <ul>
+        <li>Users can <strong>save on gas fees</strong> by bulk trading tokens instead of trading individually.</li>
+        <li>Since trading with newly deployed tokens is very rapid, the user needs to <strong>make trades very quickly</strong> to make profits.</li>
+        <li>By consolidating purchases into one transaction, users can <strong>respond swiftly to rapid market movements</strong> and secure tokens before they sell out.</li>
+      </ul>
+
+      <h4>Iterations</h4>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/06-multi-buy-v1.png" alt="Multi buy/sell iteration 1" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/07-multi-buy-v2.png" alt="Multi buy/sell iteration 2" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/08-multi-buy-v3.png" alt="Multi buy/sell iteration 3" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/09-multi-buy-v4.png" alt="Multi buy/sell final design" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>Feature 2: Buying/Selling from Multiple Wallets</h3>
+      <p>Allows users to trade the same token from multiple wallets at once.</p>
+
+      <div class="callout">
+        <p>High-demand tokens sell out rapidly, with strict wallet limits restricting purchases. This feature lets users <strong>buy tokens from multiple wallets</strong>, enabling them to act quickly and secure more tokens efficiently.</p>
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/gbot-x/10-multi-wallet.png" alt="Multi-wallet trading feature" />
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ LEARNINGS ═══ */}
+  <section class="cs-section" id="learnings">
+    <div class="sec-head">
+      <h2>Learnings &amp; Future Scope</h2>
+    </div>
+    <div class="cs-body">
+
+      <h3>Future Scope</h3>
+      <p>Although the requirement for this project was only to design and hand off the final designs while the client handled development and launch, if I had the chance, I would have done more to ensure the best user experience.</p>
+
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Usability Testing</strong><br/>Tested designs with real users before handoff to catch issues early.</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Design Iteration</strong><br/>Used feedback from testing to make improvements and refine the experience.</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-label"><strong>Beta Testing</strong><br/>Observed how users interacted with the product after development to gather feedback.</div>
+        </div>
+      </div>
+
+      <hr class="sep" />
+
+      <h3>What Users Said</h3>
+      <div class="cs-image full">
+        <img src="/images/gbot-x/20-user-feedback.png" alt="User feedback and testimonials" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>Learnings</h3>
+      <ol>
+        <li><strong>Diving into an unfamiliar domain.</strong> This being my first project in the crypto space, I had a great learning opportunity to dive into crypto trading.</li>
+        <li><strong>Stakeholder management matters.</strong> Learned a lot about ensuring smooth communication with the client and development team.</li>
+        <li><strong>Advocating for user interviews was key.</strong> It gave me valuable insights that shaped the design and made it more user-friendly.</li>
+      </ol>
+
+      <p>Thank you for taking the time to walk through this case study with me.</p>
+    </div>
+  </section>
+
+</CaseStudy>

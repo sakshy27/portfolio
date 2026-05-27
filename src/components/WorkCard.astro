@@ -4,18 +4,25 @@ interface Props {
   kicker: string;
   title: string;
   desc: string;
-  thumbClass: string;
+  thumbClass?: string;
+  thumbImage?: string;
 }
 
-const { href, kicker, title, desc, thumbClass } = Astro.props;
+const { href, kicker, title, desc, thumbClass, thumbImage } = Astro.props;
 ---
 
 <a href={href} class="work">
-  <div class:list={['thumb', thumbClass]}></div>
+  {thumbImage ? (
+    <div class="thumb thumb-img">
+      <img src={thumbImage} alt={title} />
+    </div>
+  ) : (
+    <div class:list={['thumb', thumbClass]}></div>
+  )}
   <div class="w-content">
     <div class="w-meta">
       <span class="w-kicker">{kicker}</span>
-      <span class="w-arrow">&rarr;</span>
+      <svg class="w-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8h9M8.5 4l4 4-4 4"/></svg>
     </div>
     <div class="w-title">{title}</div>
     <div class="w-desc">{desc}</div>
@@ -29,7 +36,6 @@ const { href, kicker, title, desc, thumbClass } = Astro.props;
   }
   .work:hover .w-title { color: var(--accent); }
   .work:hover .w-arrow { transform: translateX(4px); }
-  .work:hover .thumb { transform: translateY(-3px); }
   .thumb {
     aspect-ratio: 16 / 10;
     position: relative;
@@ -44,7 +50,7 @@ const { href, kicker, title, desc, thumbClass } = Astro.props;
     justify-content: space-between;
     align-items: center;
     gap: var(--space-16);
-    margin-bottom: var(--space-14);
+    margin-bottom: var(--space-12);
   }
   .w-kicker {
     font-family: var(--font-mono);
@@ -54,10 +60,8 @@ const { href, kicker, title, desc, thumbClass } = Astro.props;
     color: var(--muted);
   }
   .w-arrow {
-    font-family: var(--font-mono);
-    font-size: 16px;
-    color: var(--accent);
-    line-height: 1;
+    color: var(--muted);
+    flex-shrink: 0;
     transition: transform var(--ease-arrow);
   }
   .w-title {
@@ -65,7 +69,7 @@ const { href, kicker, title, desc, thumbClass } = Astro.props;
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-tight);
     line-height: var(--leading-tight);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-4);
     color: var(--ink);
     transition: color var(--ease-default);
   }
@@ -73,93 +77,25 @@ const { href, kicker, title, desc, thumbClass } = Astro.props;
     font-size: var(--text-desc);
     color: var(--ink-2);
     line-height: var(--leading-body);
-    max-width: var(--desc-max-width);
+    max-width: 100%;
   }
 
-  /* Thumbnail treatments */
-  .thumb-1 {
-    background:
-      linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 22px,
-      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 22px 100%,
-      white;
-  }
-  .thumb-1::before {
-    content: ''; position: absolute;
-    top: 16%; left: 8%; right: 8%; height: 10%;
-    background: var(--line);
-    border-radius: var(--radius-sm);
-  }
-  .thumb-1::after {
-    content: ''; position: absolute;
-    top: 34%; left: 8%; width: 38%; bottom: 14%;
-    background:
-      linear-gradient(to top, var(--accent) 0 60%, transparent 60%),
-      linear-gradient(to top, rgba(0,111,201,.3) 0 40%, transparent 40%),
-      linear-gradient(to top, var(--accent) 0 80%, transparent 80%),
-      linear-gradient(to top, rgba(0,111,201,.25) 0 50%, transparent 50%);
-    background-size: 20% 100%;
-    background-position: 10% 100%, 36% 100%, 62% 100%, 88% 100%;
-    background-repeat: no-repeat;
-    border-radius: var(--radius-sm);
+  /* Thumbnail treatments — solid fill placeholders */
+  .thumb-1,
+  .thumb-2,
+  .thumb-3,
+  .thumb-4 {
+    background: var(--line-2);
   }
 
-  .thumb-2 { background: var(--line-2); }
-  .thumb-2::before {
-    content: ''; position: absolute;
-    top: 8%; left: 50%; transform: translateX(-50%);
-    width: 80%; height: 84%;
-    background: white;
-    border-radius: var(--radius-md);
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  .thumb-img {
+    aspect-ratio: auto;
   }
-  .thumb-2::after {
-    content: ''; position: absolute;
-    top: 16%; left: 50%; transform: translateX(-50%);
-    width: 70%; height: 4px;
-    background: var(--accent);
-    border-radius: 2px;
-    box-shadow:
-      0 14px 0 var(--line),
-      0 28px 0 var(--line),
-      0 42px 0 var(--line);
-  }
-
-  .thumb-3 { background: #EEF4FB; }
-  .thumb-3::before {
-    content: ''; position: absolute;
-    top: 12%; left: 6%;
-    width: 42%; height: 76%;
-    background: white;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 2px 16px rgba(0,0,0,.06);
-  }
-  .thumb-3::after {
-    content: ''; position: absolute;
-    top: 18%; right: 6%;
-    width: 42%; height: 64%;
-    background: var(--accent);
-    border-radius: var(--radius-lg);
-    opacity: .85;
-  }
-
-  .thumb-4 { background: var(--ink); }
-  .thumb-4::before {
-    content: ''; position: absolute;
-    top: 12%; left: 50%; transform: translateX(-50%);
-    width: 72%; height: 76%;
-    background: white;
-    border-radius: var(--radius-md);
-  }
-  .thumb-4::after {
-    content: ''; position: absolute;
-    top: 22%; left: 50%; transform: translateX(-50%);
-    width: 60%; height: 8px;
-    background: var(--line);
-    border-radius: var(--radius-sm);
-    box-shadow:
-      0 18px 0 var(--line),
-      0 36px 0 var(--accent),
-      0 54px 0 var(--line);
+  .thumb-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s cubic-bezier(.2, .8, .2, 1);
   }
 
   @media (max-width: 600px) {

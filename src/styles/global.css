@@ -5,16 +5,19 @@
 @import './tokens.css';
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
 
 body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: var(--text-base);
   line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
   font-feature-settings: 'ss01';
 }
 
