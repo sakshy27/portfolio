@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 6 — Dark Glass</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #09090B;
+    --surface: rgba(255, 255, 255, 0.05);
+    --surface-hover: rgba(255, 255, 255, 0.08);
+    --text-primary: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --accent: #A78BFA;
+    --accent-2: #60A5FA;
+    --border: rgba(255, 255, 255, 0.08);
+    --glow: rgba(167, 139, 250, 0.1);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Subtle gradient orbs in background */
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+  }
+  body::before {
+    background: var(--accent);
+    top: -200px;
+    right: -200px;
+  }
+  body::after {
+    background: var(--accent-2);
+    bottom: -200px;
+    left: -200px;
+  }
+
+  nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav .logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  nav .links { display: flex; gap: 24px; list-style: none; align-items: center; }
+  nav .links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--text-primary); }
+  nav .nav-cta {
+    padding: 8px 20px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s;
+  }
+  nav .nav-cta:hover { border-color: var(--accent); }
+
+  .hero {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 48px 100px;
+  }
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    backdrop-filter: blur(12px);
+  }
+  .hero .badge .status {
+    width: 8px;
+    height: 8px;
+    background: #4ADE80;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  }
+  .hero h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .philosophy {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .hero .cta-row { display: flex; gap: 12px; }
+  .btn-glass {
+    padding: 14px 28px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-glass:hover { border-color: var(--accent); background: var(--surface-hover); }
+  .btn-glow {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+  }
+  .btn-glow:hover { box-shadow: 0 4px 24px var(--glow); }
+
+  .section {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 48px;
+  }
+  .section-header {
+    margin-bottom: 36px;
+  }
+  .section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .projects-grid .project-card:first-child {
+    grid-column: 1 / -1;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  .project-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, rgba(167,139,250,0.1), rgba(96,165,250,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .projects-grid .project-card:first-child .project-image { height: 300px; }
+  .project-content { padding: 20px 24px; }
+  .project-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(167, 139, 250, 0.1);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .project-title {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .project-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .exp-glass-cards { display: flex; gap: 16px; }
+  .exp-glass {
+    flex: 1;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s;
+  }
+  .exp-glass:hover { border-color: var(--accent); }
+  .exp-role { font-weight: 600; font-size: 17px; margin-bottom: 4px; }
+  .exp-company { color: var(--accent); font-size: 15px; margin-bottom: 12px; }
+  .exp-meta { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  .contact {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .contact h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+  .contact h2 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .contact p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+  .social-glass {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .social-glass a {
+    padding: 8px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-glass a:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .theme-tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-tag">Theme 6 — Dark Glass</div>
+
+<nav>
+  <a href="#" class="logo">sakshi gupta</a>
+  <ul class="links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a class="nav-cta" href="#">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="badge"><span class="status"></span> Product Designer @ Juspay</div>
+  <h1>Hey, I'm <span class="gradient">Sakshi</span></h1>
+  <p class="philosophy">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+  <div class="cta-row">
+    <a href="#" class="btn-glow">Book a Call</a>
+    <a href="#" class="btn-glass">View Resume</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header"><h2>Featured Work</h2></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Work Project</span>
+        <h3 class="project-title">GBOT-X: Gemach Trading Dashboard</h3>
+        <p class="project-desc">A one-stop solution for trading newly deployed tokens, eliminating the need to switch platforms.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Personal Project</span>
+        <h3 class="project-title">Dukaan Subscriptions</h3>
+        <p class="project-desc">Boosting sales and retention for sellers on Dukaan.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Design Assignment</span>
+        <h3 class="project-title">Vymo Dashboard</h3>
+        <p class="project-desc">Sales manager performance monitoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header"><h2>Experience</h2></div>
+  <div class="exp-glass-cards">
+    <div class="exp-glass">
+      <div class="exp-role">Product Designer</div>
+      <div class="exp-company">Juspay</div>
+      <div class="exp-meta">May 2025 — Present<br>Bengaluru</div>
+    </div>
+    <div class="exp-glass">
+      <div class="exp-role">Product Designer</div>
+      <div class="exp-company">Intentionally Designed Solutions</div>
+      <div class="exp-meta">Feb 2024 — May 2025<br>Remote</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Let's <span class="gradient">Connect</span></h2>
+  <p>I'm open to full-time and freelance opportunities in product design.</p>
+  <a href="#" class="btn-glow">Book a Call</a>
+  <div class="social-glass">
+    <a href="#">Email</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  Thanks for making it till the end. Have a great day ahead :)
+</footer>
+
+</body>
+</html>

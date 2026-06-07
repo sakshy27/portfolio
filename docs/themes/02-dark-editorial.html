@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 2 — Dark Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0E0E0E;
+    --surface: #181818;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A0A0A0;
+    --text-muted: #666666;
+    --accent: #E8C57A;
+    --border: #2A2A2A;
+    --card-hover: #1E1E1E;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  nav .links { display: flex; gap: 36px; list-style: none; }
+  nav .links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--accent); }
+
+  .hero {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 120px 56px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-left {}
+  .hero .role-tag {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero .philosophy {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+  .hero .cta-row { display: flex; gap: 16px; }
+  .btn-accent {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-accent:hover { opacity: 0.85; }
+  .btn-ghost {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--text-secondary); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .stat-block {
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 80px 56px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+  }
+  .section-header .count {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .projects-list { display: flex; flex-direction: column; gap: 2px; }
+  .project-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 120px;
+    gap: 32px;
+    align-items: center;
+    padding: 28px 24px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .project-row:hover { background: var(--card-hover); }
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--text-muted);
+  }
+  .project-info {}
+  .project-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .project-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .project-type {
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .project-arrow {
+    font-size: 24px;
+    color: var(--text-muted);
+    text-align: right;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .project-row:hover .project-arrow {
+    transform: translateX(4px);
+    color: var(--accent);
+  }
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .exp-card {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: var(--accent); }
+  .exp-period {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .exp-role {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .exp-company {
+    font-size: 16px;
+    color: var(--accent);
+  }
+  .exp-location {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  .contact {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 100px 56px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .contact h2 em { font-style: italic; color: var(--accent); }
+  .contact p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+  }
+  .social-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .social-links a:hover { color: var(--accent); }
+
+  footer {
+    text-align: center;
+    padding: 40px 56px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .theme-tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-tag">Theme 2 — Dark Editorial</div>
+
+<nav>
+  <a href="#" class="logo">Sakshi Gupta</a>
+  <ul class="links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="role-tag">Product Designer @ Juspay</p>
+    <h1>Design is in the <em>details</em></h1>
+    <p class="philosophy">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-accent">Book a Call</a>
+      <a href="#" class="btn-ghost">View Resume</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-block">
+      <div class="stat-number">2+</div>
+      <div class="stat-label">Years of experience</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">3</div>
+      <div class="stat-label">End-to-end case studies</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">B2B & B2C</div>
+      <div class="stat-label">Domain range</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Selected Work</h2>
+    <span class="count">03 Projects</span>
+  </div>
+  <div class="projects-list">
+    <a href="#" class="project-row">
+      <span class="project-num">01</span>
+      <div class="project-info">
+        <div class="project-title">GBOT-X: Gemach Trading Dashboard</div>
+        <div class="project-desc">One-stop solution for trading newly deployed tokens</div>
+      </div>
+      <span class="project-type">Work Project</span>
+      <span class="project-arrow">&rarr;</span>
+    </a>
+    <a href="#" class="project-row">
+      <span class="project-num">02</span>
+      <div class="project-info">
+        <div class="project-title">Dukaan Subscriptions</div>
+        <div class="project-desc">Boosting sales and retention for sellers on Dukaan</div>
+      </div>
+      <span class="project-type">Personal Project</span>
+      <span class="project-arrow">&rarr;</span>
+    </a>
+    <a href="#" class="project-row">
+      <span class="project-num">03</span>
+      <div class="project-info">
+        <div class="project-title">Vymo: Performance Dashboard</div>
+        <div class="project-desc">Helping sales managers monitor team performance</div>
+      </div>
+      <span class="project-type">Design Assignment</span>
+      <span class="project-arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Experience</h2>
+  </div>
+  <div class="experience-grid">
+    <div class="exp-card">
+      <div class="exp-period">May 2025 — Present</div>
+      <div class="exp-role">Product Designer</div>
+      <div class="exp-company">Juspay</div>
+      <div class="exp-location">Bengaluru</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">Feb 2024 — May 2025</div>
+      <div class="exp-role">Product Designer</div>
+      <div class="exp-company">Intentionally Designed Solutions</div>
+      <div class="exp-location">Remote</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Let's create something <em>great</em></h2>
+  <p>I'm open to full-time and freelance opportunities in product design.</p>
+  <a href="#" class="btn-accent">Book a Call</a>
+  <div class="social-links">
+    <a href="#">Email</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  Thanks for making it till the end. Have a great day ahead :)
+</footer>
+
+</body>
+</html>

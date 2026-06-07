@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 4 — Playful Bold</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #FAF8F5;
+    color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  h1 .serif {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .role {
+    font-size: 18px;
+    color: #9BA1A5;
+    margin-bottom: 36px;
+  }
+  .role a {
+    color: #4A4A4A;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #DDE0DC;
+    padding-bottom: 1px;
+  }
+  .role a:hover { border-color: #151515; }
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .btn {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: #2D6DC4;
+    color: #fff;
+    border: 1px solid #2D6DC4;
+  }
+  .btn-primary:hover { background: transparent; color: #2D6DC4; }
+  .btn-secondary {
+    background: transparent;
+    color: #151515;
+    border: 1px solid #DDE0DC;
+  }
+  .btn-secondary:hover { background: #F1EFED; }
+  .tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2D6DC4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Hello, I'm Sakshi &mdash; I design products with <span class="serif">intention & detail</span> (literally and thoughtfully).</h1>
+    <p class="role">currently product designer @ <a href="https://juspay.io/in">Juspay</a></p>
+    <div class="actions">
+      <a href="#" class="btn btn-primary">Book a Call</a>
+      <a href="#" class="btn btn-secondary">Resume</a>
+    </div>
+  </div>
+  <div class="tag">Hero 4 — Playful Bold Centered (Aditi style)</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sakshi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F8F9FC;
+    --text: #151515;
+    --text-secondary: #4A4A4A;
+    --text-muted: #9BA1A5;
+    --border: #DDE0DC;
+    --hover-bg: #F1EFED;
+    --tag-bg: #F1F2F0;
+    --surface: #FEFFFE;
+    --accent: #2D6DC4;
+    --highlight: #FAD13B;
+    --left-line: max(24px, calc((100vw - 840px) / 2));
+  }
+
+  html { overflow-x: hidden; }
+
+  body {
+    font-family: 'Poppins', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+
+  /* ─── VERTICAL LINES ─── */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    z-index: 1;
+    pointer-events: none;
+  }
+  body::before { left: var(--left-line); }
+  body::after { right: var(--left-line); }
+
+  /* ─── CONTENT COLUMN ─── */
+  .content {
+    max-width: calc(100% - var(--left-line) * 2);
+    margin: 0 auto;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px 0;
+  }
+  nav .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.2px;
+  }
+  nav .nav-center {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+  }
+  nav .nav-center a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  nav .nav-center a:hover { color: var(--text); }
+  nav .nav-center a.active { color: var(--text); }
+  nav .nav-right {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  nav .nav-right a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  nav .nav-right a:hover { color: var(--text); }
+  nav .nav-right .cta {
+    color: #fff;
+    padding: 7px 16px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 0;
+    font-size: 13px;
+    transition: all 0.15s;
+  }
+  nav .nav-right .cta:hover { background: transparent; color: var(--accent); }
+
+  /* ─── SECTION ─── */
+  .section {
+    padding: 56px 0;
+  }
+
+  /* ─── ABOUT HERO ─── */
+  .about-hero h1 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+  }
+  .about-hero h1 .serif {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .about-hero .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--hover-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .about-hero .lead {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .about-hero .lead a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--accent);
+    transition: text-decoration-color 0.15s;
+  }
+  .about-hero .lead a:hover { text-decoration-color: var(--text); }
+
+  /* ─── SECTION LABEL ─── */
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── ABOUT BODY TEXT ─── */
+  .about-body p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  /* ─── SKILLS / TOOLS ─── */
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tags-list span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(45, 109, 196, 0.1);
+    padding: 6px 14px;
+  }
+
+  /* ─── CONNECT LINKS ─── */
+  .connect-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .connect-list a {
+    font-size: 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s;
+  }
+  .connect-list a:hover { color: var(--accent); }
+  .connect-list .label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+    min-width: 80px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 840px) {
+    :root { --left-line: 24px; }
+    .content { padding-left: 32px; padding-right: 20px; }
+    .about-hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="content">
+  <!-- NAV -->
+  <nav>
+    <a href="07-text-driven-minimal.html" class="name">SG.</a>
+    <ul class="nav-center">
+      <li><a href="07-text-driven-minimal.html#work">Work</a></li>
+      <li><a href="07-text-driven-minimal.html#experience">Experience</a></li>
+      <li><a href="07-text-driven-minimal.html#experiments">Claude</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li><a href="#">Resume &#8599;</a></li>
+      <li><a href="07-text-driven-minimal.html#contact" class="cta">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div style="width:100%;height:1px;background:var(--border)"></div>
+
+<div class="content">
+  <div class="section about-hero">
+    <div class="photo-placeholder">Photo</div>
+    <h1>I'm Sakshi &mdash; a product designer who cares about <span class="serif">intention & detail</span></h1>
+    <p class="lead">
+      Currently designing at <a href="https://juspay.io/in">Juspay</a> in Bengaluru. Previously at <a href="#">Intentionally Designed Solutions</a>.
+    </p>
+  </div>
+</div>
+
+<div style="width:100%;height:1px;background:var(--border)"></div>
+
+<div class="content">
+  <div class="section">
+    <p class="section-label">About Me</p>
+    <div class="about-body">
+      <p>I believe that great design goes beyond interfaces. Diving into the minute details &mdash; understanding the problem deeply, questioning assumptions, and refining every interaction &mdash; is what makes the experience truly exceptional.</p>
+      <p>My process is rooted in research and empathy. I conduct user interviews, usability testing, and competitive analysis to arrive at solutions that are both user-friendly and aligned with business goals.</p>
+      <p>When I'm not designing, you'll find me exploring new tools, experimenting with creative side projects, or learning something new about the craft.</p>
+    </div>
+  </div>
+</div>
+
+<div style="width:100%;height:1px;background:var(--border)"></div>
+
+<div class="content">
+  <div class="section">
+    <p class="section-label">Skills & Tools</p>
+    <div class="tags-list">
+      <span>User Research</span>
+      <span>Interaction Design</span>
+      <span>Prototyping</span>
+      <span>Usability Testing</span>
+      <span>Design Systems</span>
+      <span>Figma</span>
+      <span>FigJam</span>
+      <span>Notion</span>
+      <span>Information Architecture</span>
+      <span>Wireframing</span>
+    </div>
+  </div>
+</div>
+
+<div style="width:100%;height:1px;background:var(--border)"></div>
+
+<div class="content">
+  <div class="section">
+    <p class="section-label">Connect</p>
+    <div class="connect-list">
+      <a href="mailto:sakshigupta9368@gmail.com"><span class="label">Email</span> sakshigupta9368@gmail.com</a>
+      <a href="https://twitter.com/sakshi_026"><span class="label">Twitter</span> @sakshi_026</a>
+      <a href="https://www.linkedin.com/in/sakshi-gupta-225a3020b/"><span class="label">LinkedIn</span> sakshi-gupta</a>
+      <a href="https://calendly.com/sakshigupta26/introductory-call-with-sakshi"><span class="label">Calendly</span> Book a call</a>
+    </div>
+  </div>
+</div>
+
+<div style="width:100%;height:1px;background:var(--border)"></div>
+
+<div class="content">
+  <div class="footer-inner">
+    <span>Thanks for making it till the end :)</span>
+    <span>Sakshi Gupta &copy; 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

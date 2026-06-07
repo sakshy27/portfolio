@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 3 — Monochrome Bold</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FFFFFF;
+    --text: #000000;
+    --gray: #777777;
+    --light-gray: #E5E5E5;
+    --hover-bg: #F5F5F5;
+  }
+
+  body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  nav .links { display: flex; gap: 28px; list-style: none; }
+  nav .links a {
+    font-size: 14px;
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  nav .links a:hover { color: var(--text); }
+
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 48px 100px;
+  }
+  .hero h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .hero h1 .outline {
+    -webkit-text-stroke: 2px var(--text);
+    color: transparent;
+  }
+  .hero .sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 2px solid var(--text);
+    padding-top: 24px;
+  }
+  .hero .philosophy {
+    font-size: 17px;
+    color: var(--gray);
+    max-width: 500px;
+    line-height: 1.7;
+  }
+  .hero .cta-row { display: flex; gap: 12px; }
+  .btn-black {
+    padding: 14px 32px;
+    background: var(--text);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.15s;
+  }
+  .btn-black:hover { background: transparent; color: var(--text); }
+  .btn-outline {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.15s;
+  }
+  .btn-outline:hover { background: var(--text); color: var(--bg); }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 48px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gray);
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--text);
+    display: inline-block;
+  }
+
+  .projects-stack { display: flex; flex-direction: column; }
+  .project-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--light-gray);
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+  .project-block:last-child { border-bottom: 1px solid var(--light-gray); }
+  .project-block:hover { background: var(--hover-bg); }
+  .project-image-area {
+    height: 280px;
+    background: var(--hover-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--gray);
+    border-right: 1px solid var(--light-gray);
+  }
+  .project-text {
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .project-num {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--light-gray);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .project-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .project-type {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .project-desc {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .exp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light-gray);
+    align-items: center;
+  }
+  .exp-role { font-weight: 700; font-size: 18px; }
+  .exp-company { color: var(--gray); font-size: 16px; }
+  .exp-period { font-size: 14px; color: var(--gray); text-align: right; }
+
+  .contact {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    border-top: 2px solid var(--text);
+  }
+  .contact h2 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .contact p {
+    font-size: 17px;
+    color: var(--gray);
+    margin-bottom: 36px;
+    max-width: 500px;
+  }
+  .social-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  .social-row a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text);
+    transition: opacity 0.15s;
+  }
+  .social-row a:hover { opacity: 0.5; }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  .theme-tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 10px 20px;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-tag">Theme 3 — Monochrome Bold</div>
+
+<nav>
+  <a href="#" class="logo">S.G</a>
+  <ul class="links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>
+    SAKSHI<br>
+    <span class="outline">GUPTA</span>
+  </h1>
+  <div class="sub">
+    <p class="philosophy">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-black">Resume</a>
+      <a href="#" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Selected Work</div>
+  <div class="projects-stack">
+    <div class="project-block">
+      <div class="project-image-area">Case study cover</div>
+      <div class="project-text">
+        <div class="project-num">01</div>
+        <div class="project-type">Work Project</div>
+        <div class="project-title">GBOT-X</div>
+        <div class="project-desc">A one-stop solution for trading newly deployed tokens, eliminating the need to switch between multiple platforms.</div>
+      </div>
+    </div>
+    <div class="project-block">
+      <div class="project-image-area">Case study cover</div>
+      <div class="project-text">
+        <div class="project-num">02</div>
+        <div class="project-type">Personal Project</div>
+        <div class="project-title">Dukaan Subscriptions</div>
+        <div class="project-desc">Introducing subscriptions to boost sales and retention for sellers on Dukaan's B2B2C platform.</div>
+      </div>
+    </div>
+    <div class="project-block">
+      <div class="project-image-area">Case study cover</div>
+      <div class="project-text">
+        <div class="project-num">03</div>
+        <div class="project-type">Design Assignment</div>
+        <div class="project-title">Vymo Dashboard</div>
+        <div class="project-desc">Helping sales managers monitor performance of their team efficiently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Experience</div>
+  <div class="exp-row">
+    <div class="exp-role">Product Designer</div>
+    <div class="exp-company">Juspay — Bengaluru</div>
+    <div class="exp-period">2025 — Present</div>
+  </div>
+  <div class="exp-row">
+    <div class="exp-role">Product Designer</div>
+    <div class="exp-company">IDS — Remote</div>
+    <div class="exp-period">2024 — 2025</div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Let's Talk</h2>
+  <p>I'm open to full-time and freelance opportunities in product design.</p>
+  <a href="#" class="btn-black">Book a Call</a>
+  <div class="social-row">
+    <a href="#">Email</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  Thanks for making it till the end. Have a great day ahead :)
+</footer>
+
+</body>
+</html>

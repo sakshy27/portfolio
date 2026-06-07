@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 1 — Soft Minimal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9B9B9B;
+    --accent: #C8A87E;
+    --accent-hover: #B8956A;
+    --border: #EBEBEB;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    --card-hover-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  nav .links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  nav .links a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--text-primary); }
+
+  /* HERO */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px 80px;
+  }
+  .hero .greeting {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+  }
+  .hero .philosophy {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .hero .cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    padding: 12px 28px;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: #333; }
+  .btn-secondary {
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    text-decoration: none;
+  }
+  .btn-secondary:hover { border-color: var(--text-secondary); }
+
+  /* SECTION */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 48px;
+  }
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  /* PROJECT CARDS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .project-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-4px);
+  }
+  .project-image {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #f0ece4, #e8e2d8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .project-content {
+    padding: 28px 32px;
+  }
+  .project-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  .project-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* EXPERIENCE */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .exp-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-role {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .exp-company {
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+  .exp-meta {
+    text-align: right;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* CONTACT */
+  .contact {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .contact h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  .contact p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .social-links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .social-links a:hover { color: var(--text-primary); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 48px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* THEME TAG */
+  .theme-tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--text-primary);
+    color: var(--bg);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-tag">Theme 1 — Soft Minimal</div>
+
+<nav>
+  <a href="#" class="logo">Sakshi.</a>
+  <ul class="links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="greeting">Product Designer</p>
+  <h1>Hey, I'm Sakshi</h1>
+  <p class="philosophy">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+  <div class="cta-row">
+    <a href="#" class="btn-primary">View Resume</a>
+    <a href="#" class="btn-secondary">Let's Talk</a>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-label">Featured Work</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <p class="project-tag">Work Project</p>
+        <h3 class="project-title">GBOT-X: Gemach Trading Dashboard</h3>
+        <p class="project-desc">A one-stop solution for trading newly deployed tokens, eliminating the need for users to switch between multiple platforms.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <p class="project-tag">Personal Project</p>
+        <h3 class="project-title">Dukaan Subscriptions</h3>
+        <p class="project-desc">Introducing subscriptions to boost sales and retention for sellers on Dukaan's B2B2C platform.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <p class="project-tag">Design Assignment</p>
+        <h3 class="project-title">Vymo: Sales Performance Dashboard</h3>
+        <p class="project-desc">Helping sales managers monitor performance of their team efficiently with a revamped dashboard experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-label">Experience</p>
+  <div class="experience-list">
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Product Designer</div>
+        <div class="exp-company">Juspay</div>
+      </div>
+      <div class="exp-meta">
+        May 2025 — Present<br>Bengaluru
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Product Designer</div>
+        <div class="exp-company">Intentionally Designed Solutions</div>
+      </div>
+      <div class="exp-meta">
+        Feb 2024 — May 2025<br>Remote
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Let's Connect</h2>
+  <p>I'm open to full-time and freelance opportunities in product design.</p>
+  <a href="#" class="btn-primary">Book a Call</a>
+  <div class="social-links">
+    <a href="#">Email</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  Thanks for making it till the end. Have a great day ahead :)
+</footer>
+
+</body>
+</html>

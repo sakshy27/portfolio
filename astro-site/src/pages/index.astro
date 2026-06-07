@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Topbar from '../components/Topbar.astro';
+import Hero from '../components/Hero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import WorkCard from '../components/WorkCard.astro';
+import ExperimentRow from '../components/ExperimentRow.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base>
+  <Topbar />
+
+  <main class="wrap">
+    <Hero />
+
+    <!-- Selected work -->
+    <section class="sec" id="work">
+      <SectionHead title="Selected work" count="04 projects" separator />
+      <div class="work-list">
+        <WorkCard
+          href="#"
+          kicker="New Feature · Work Project · Xyne Spaces by Juspay"
+          title="Imagining ticket experience for human and agent shared workspace"
+          desc="An end-to-end design of how humans and AI agents collaborate to resolve tickets in Xyne Spaces, an internal AI-powered workspace tool."
+          thumbImage="/images/xyne-tickets.png"
+        />
+        <WorkCard
+          href="#"
+          kicker="Redesign · Work Project · Juspay Hyperswitch"
+          title="Revamping Invite Users Experience"
+          desc="A redesign of how users can invite their teamates onto their hyperswitch dashboard, making roles and access clear and easy to set up"
+          thumbImage="/images/hyperswitch-invite.png"
+        />
+        <WorkCard
+          href="/work/dukaan"
+          kicker="New Feature · Personal Project · Dukaan"
+          title="Introducing Subscriptions to boost sales and retention for sellers on Dukaan"
+          desc="Conducted in-depth research on stakeholders (Dukaan, sellers, customers) to deliver solutions aligned with user needs and business goals."
+          thumbImage="/images/dukaan-cover.png"
+        />
+        <WorkCard
+          href="/work/gbot-x"
+          kicker="0-1 Product · Work Project · Gemach"
+          title="Simplifying Crypto Trading: A decentralized platform for traders"
+          desc="Conducted in-depth research, user interviews, and usability testing to design a seamless and intuitive experience for traders."
+          thumbImage="/images/gbot-x-cover.png"
+        />
+      </div>
+    </section>
+
+    <!-- Claude experiments -->
+    <section class="sec" id="ai-builds">
+      <SectionHead title="Built with Claude" count="02 experiments" separator />
+      <div class="exp-list">
+        <ExperimentRow
+          href="https://splitfree-tbc.vercel.app/"
+          title="Splitfree"
+          desc="A better and free alternative to Splitwise."
+        />
+        <ExperimentRow
+          href="https://air-slice.vercel.app/"
+          title="Air Slice"
+          desc="Fruit Ninja reimagined with real-time hand tracking through your webcam."
+        />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .sec { padding: var(--space-48) 0; }
+  .work-list { display: flex; flex-direction: column; gap: var(--space-72); }
+  .exp-list { display: flex; flex-direction: column; }
+
+  @media (max-width: 600px) {
+    .sec { padding: var(--space-32) 0; }
+    .work-list { gap: 40px; }
+  }
+</style>

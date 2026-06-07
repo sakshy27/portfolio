@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 5 — Lavender Modern</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F8F7FC;
+    --surface: #FFFFFF;
+    --text-primary: #1C1835;
+    --text-secondary: #6E6A80;
+    --text-muted: #A09CB0;
+    --accent: #7C5CFC;
+    --accent-light: #EDE8FF;
+    --accent-glow: rgba(124, 92, 252, 0.15);
+    --border: #E8E5F0;
+    --gradient: linear-gradient(135deg, #7C5CFC, #B06CFF);
+  }
+
+  body {
+    font-family: 'Sora', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  nav .links { display: flex; gap: 28px; list-style: none; align-items: center; }
+  nav .links a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--accent); }
+  nav .nav-cta {
+    padding: 8px 20px;
+    background: var(--gradient);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  nav .nav-cta:hover { opacity: 0.9; }
+
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px 80px;
+    text-align: center;
+  }
+  .hero .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero .pill .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+  }
+  .hero h1 .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .philosophy {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero .cta-row { display: flex; gap: 12px; justify-content: center; }
+  .btn-gradient {
+    padding: 14px 32px;
+    background: var(--gradient);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+  }
+  .btn-gradient:hover { box-shadow: 0 4px 20px var(--accent-glow); }
+  .btn-light {
+    padding: 14px 32px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .btn-light:hover { border-color: var(--accent); }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 48px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+  .section-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .section-header a {
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px var(--accent-glow);
+  }
+  .project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--accent-light), #F0E8FF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .project-content { padding: 20px 24px; }
+  .project-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .project-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  .project-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+  .exp-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gradient);
+    flex-shrink: 0;
+  }
+  .exp-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 8px;
+  }
+  .exp-info {}
+  .exp-role { font-weight: 600; font-size: 17px; margin-bottom: 2px; }
+  .exp-company { color: var(--accent); font-size: 15px; margin-bottom: 4px; }
+  .exp-meta { font-size: 14px; color: var(--text-muted); }
+
+  .contact {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 60px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .contact-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .contact-card p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+  }
+  .social-chips {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .social-chips a {
+    padding: 8px 16px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .social-chips a:hover { background: #DDD4FF; }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .theme-tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--gradient);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-tag">Theme 5 — Lavender Modern</div>
+
+<nav>
+  <a href="#" class="logo">sakshi.</a>
+  <ul class="links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a class="nav-cta" href="#">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="pill"><span class="dot"></span> Available for work</div>
+  <h1>Designing with<br><span class="italic">intention & detail</span></h1>
+  <p class="philosophy">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+  <div class="cta-row">
+    <a href="#" class="btn-gradient">Book a Call</a>
+    <a href="#" class="btn-light">View Resume</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Featured Work</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Work Project</span>
+        <h3 class="project-title">GBOT-X Trading Dashboard</h3>
+        <p class="project-desc">One-stop solution for trading newly deployed tokens.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Personal Project</span>
+        <h3 class="project-title">Dukaan Subscriptions</h3>
+        <p class="project-desc">Boosting sales and retention for sellers.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">Case study cover</div>
+      <div class="project-content">
+        <span class="project-tag">Design Assignment</span>
+        <h3 class="project-title">Vymo Dashboard</h3>
+        <p class="project-desc">Sales manager performance monitoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header"><h2>Experience</h2></div>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot-col">
+        <div class="exp-dot"></div>
+        <div class="exp-line"></div>
+      </div>
+      <div class="exp-info">
+        <div class="exp-role">Product Designer</div>
+        <div class="exp-company">Juspay</div>
+        <div class="exp-meta">May 2025 — Present &middot; Bengaluru</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot-col">
+        <div class="exp-dot"></div>
+      </div>
+      <div class="exp-info">
+        <div class="exp-role">Product Designer</div>
+        <div class="exp-company">Intentionally Designed Solutions</div>
+        <div class="exp-meta">Feb 2024 — May 2025 &middot; Remote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="contact-card">
+    <h2>Let's Connect</h2>
+    <p>I'm open to full-time and freelance opportunities in product design.</p>
+    <a href="#" class="btn-gradient">Book a Call</a>
+    <div class="social-chips">
+      <a href="#">Email</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Thanks for making it till the end. Have a great day ahead :)
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 6 — Bold Name Light</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #F8F9FC;
+    color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 840px;
+    width: 100%;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #DDE0DC;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #4A4A4A;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    background: #2D6DC4;
+    border-radius: 50%;
+  }
+  .hello {
+    font-size: 18px;
+    color: #9BA1A5;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
+  }
+  .role {
+    font-size: 20px;
+    color: #4A4A4A;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .role a {
+    color: #151515;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: #DDE0DC;
+    transition: text-decoration-color 0.15s;
+  }
+  .role a:hover { text-decoration-color: #151515; }
+  .bio {
+    font-size: 17px;
+    color: #9BA1A5;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .actions {
+    display: flex;
+    gap: 12px;
+  }
+  .btn {
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: #2D6DC4;
+    color: #fff;
+    border: 1px solid #2D6DC4;
+  }
+  .btn-primary:hover { background: transparent; color: #2D6DC4; }
+  .btn-secondary {
+    background: transparent;
+    color: #151515;
+    border: 1px solid #DDE0DC;
+  }
+  .btn-secondary:hover { background: #F1EFED; }
+  .tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2D6DC4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge"><span class="dot"></span> Available for Work</div>
+    <p class="hello">Hello, I Am</p>
+    <h1>Sakshi</h1>
+    <p class="role">Product Designer at <a href="https://juspay.io/in">Juspay</a></p>
+    <p class="bio">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+    <div class="actions">
+      <a href="#" class="btn btn-primary">Book a Call</a>
+      <a href="#" class="btn btn-secondary">Resume</a>
+    </div>
+  </div>
+  <div class="tag">Hero 6 — Bold Name Light (Tanvi layout)</div>
+</body>
+</html>

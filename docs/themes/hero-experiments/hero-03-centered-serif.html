@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 3 — Centered Serif</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #F5F3EF;
+    color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 840px;
+    width: 100%;
+    text-align: center;
+  }
+  .intro {
+    font-size: 16px;
+    color: #9BA1A5;
+    font-style: italic;
+    font-family: 'Newsreader', serif;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Newsreader', serif;
+    font-size: 52px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 32px;
+    color: #2A2A2A;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #9BA1A5;
+    margin-bottom: 8px;
+  }
+  .meta a {
+    color: #151515;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #DDE0DC;
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+  }
+  .meta a:hover { border-color: #151515; }
+  .meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #9BA1A5;
+    margin-bottom: 36px;
+  }
+  .meta-row span {
+    font-weight: 500;
+    color: #4A4A4A;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    background: #6B8E5A;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.85; }
+  .tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #6B8E5A;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <p class="intro">Hi, I'm Sakshi</p>
+    <h1>I design products with intention & detail, not just interfaces.</h1>
+    <div class="meta">Currently at &nbsp;<a href="https://juspay.io/in">Juspay</a></div>
+    <div class="meta-row">Previously at &nbsp;<span>Intentionally Designed Solutions</span></div>
+    <a href="#work" class="btn">Explore work</a>
+  </div>
+  <div class="tag">Hero 3 — Centered Serif (Devyani style)</div>
+</body>
+</html>

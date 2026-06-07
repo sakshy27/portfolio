@@ -1,0 +1,478 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'research', label: 'Research' },
+  { id: 'analysis', label: 'Analysis' },
+  { id: 'decisions', label: 'Decisions' },
+  { id: 'solution', label: 'Solution' },
+  { id: 'learnings', label: 'Learnings' },
+];
+---
+
+<CaseStudy
+  title="Introducing Subscriptions to boost sales and retention for sellers on Dukaan"
+  kicker="Personal Project · New Feature · Dukaan"
+  description="Conducted in-depth research and gained comprehensive understanding of stakeholders (Dukaan, sellers, customers) involved delivering solution that not only caters to user needs but also aligns with business goals."
+  role="Product Designer"
+  timeline="6 weeks, 2024"
+  platform="Web (B2B2C)"
+  context='<a href="https://www.10kdesigners.com/">10kdesigners</a> Capstone'
+  sections={sections}
+  nextProject={{ href: "/work/gbot-x", title: "GBOT-X: Gemach Trading Dashboard" }}
+>
+
+  {/* ─── COVER ─── */}
+  <div class="cs-cover">
+    <img src="/images/dukaan-thumb.png" alt="Dukaan Subscriptions case study cover" />
+  </div>
+
+  {/* ═══ OVERVIEW ═══ */}
+  <section class="cs-section" id="overview">
+    <div class="sec-head">
+      <h2>Overview</h2>
+    </div>
+    <div class="cs-body">
+      <p><em>This was a capstone project given by <a href="https://mydukaan.io/">Dukaan</a> as a part of the <a href="https://www.10kdesigners.com/">10kdesigners</a> cohort.</em></p>
+
+      <h3>About Dukaan</h3>
+      <p><a href="https://mydukaan.io/">Dukaan</a> is a platform that enables local businesses/kirana stores to create and launch their e-commerce store without requiring any coding or technical skills. It's a <strong>B2B2C product</strong>, considering that it provides a <strong>platform for sellers to manage their online business</strong> (called seller side) and enables <strong>customers to place orders on the stores</strong> (called customer side) powered by Dukaan.</p>
+
+      <div class="callout">
+        <p>We had the choice to either design for the seller or the customer side. <strong>I chose the seller side</strong> for the scope of this assignment, as it seemed like a challenging yet great learning opportunity to me.</p>
+      </div>
+
+      <p>In order to design for the seller side, it was important to gain an understanding about customers shopping patterns/pain points, etc to design the right solution that aligns with the needs and preferences of their customers.</p>
+
+      <h3>Problem Statement</h3>
+      <p>Currently, if a customer has to buy a product multiple times, <strong>they have to go through the checkout journey every single time</strong>, which is not a good experience and <strong>definitely not the best usage of their time.</strong> There's an opportunity to make this process quicker and easier.</p>
+
+      <div class="callout">
+        <p><strong>The design brief:</strong> Design a feature for the sellers/businesses to enable 'Subscriptions' on products.</p>
+      </div>
+
+      <h3>Video Walkthrough</h3>
+      <p><strong>Part 1:</strong> This video covers the process up until visual design.</p>
+      <div class="cs-video">
+        <iframe src="https://www.loom.com/embed/59fc3c2c1c6b46e99d708f9d2770b77d" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <p><strong>Part 2:</strong> This video covers all the design, iterations and design decisions made.</p>
+      <div class="cs-video">
+        <iframe src="https://www.loom.com/embed/20a7b85a04a6441e8c933e12d3d945a4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ RESEARCH ═══ */}
+  <section class="cs-section" id="research">
+    <div class="sec-head">
+      <h2>Understanding Customers Shopping Behaviour</h2>
+    </div>
+    <div class="cs-body">
+      <p>I conducted user interviews to gain insights into customer behaviour around purchasing items, their repeat purchase pattern and the pain points they experience during the process.</p>
+
+      <h3>Key findings from the research</h3>
+      <ul>
+        <li>The <strong>frequency of purchases varies based on individual needs and consumption patterns.</strong>
+          <ul>
+            <li>Daily essentials like dairy items and vegetables are commonly bought on a daily, weekly, or weekend basis.</li>
+            <li>Meanwhile, grocery items and household essentials are typically purchased on a monthly or every two months basis.</li>
+          </ul>
+        </li>
+        <li><strong>Customers tend to stick with the same products and brands</strong> unless they have encountered a negative experience with a particular item.</li>
+        <li>While the quantity of purchases usually remains consistent, there are instances where it differs. Factors such as having guests or other specific reasons may influence the quantity bought.</li>
+      </ul>
+
+      <div class="callout-insight">
+        <div class="tag">Key Pain Points</div>
+        <p><strong>1.</strong> Due to their busy schedule, keeping track of items in stock gets difficult and they only realize to restock when they're running out of it.</p>
+        <p><strong>2.</strong> The constant need to remember and repeat the checkout process is time-consuming and frustrating.</p>
+        <p><strong>3.</strong> Customers have to take out time to physically go out to the store for buying daily essentials like bread/vegetables etc. They find it a time-consuming and tedious task.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ COMPETITIVE ANALYSIS ═══ */}
+  <section class="cs-section" id="analysis">
+    <div class="sec-head">
+      <h2>Subscription on Other Platforms: Comparative Analysis</h2>
+    </div>
+    <div class="cs-body">
+      <p>I conducted a comparative analysis to understand how other platforms are offering subscriptions and what we can add to our solution to make it relevant to our context.</p>
+
+      <table class="cs-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>BBdaily</th>
+            <th>Supr Daily</th>
+            <th>Country Delight</th>
+            <th>Amazon S&amp;S</th>
+            <th>Milk Basket</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Products</strong></td>
+            <td>Groceries<br/>Household essentials, etc</td>
+            <td>Groceries<br/>Household essentials, etc</td>
+            <td>Groceries<br/>Household essentials, etc</td>
+            <td>Groceries<br/>Household essentials<br/>Gym supplements, etc</td>
+            <td>Groceries<br/>Household essentials, etc</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>Daily<br/>Multiple days a week<br/>Monthly</td>
+            <td>Daily<br/>Multiple days a week</td>
+            <td>Daily<br/>Multiple days a week<br/>Monthly</td>
+            <td>Every 1/2/3/4/5/6 months</td>
+            <td>Daily<br/>Multiple days a week<br/>Monthly</td>
+          </tr>
+          <tr>
+            <td><strong>Duration</strong></td>
+            <td><strong>Indefinite</strong><br/>Until customer cancels</td>
+            <td><strong>Definite</strong></td>
+            <td><strong>Indefinite</strong><br/>Until customer cancels</td>
+            <td><strong>Indefinite</strong><br/>Until customer cancels</td>
+            <td><strong>Indefinite</strong><br/>Until customer cancels</td>
+          </tr>
+          <tr>
+            <td><strong>Payment</strong></td>
+            <td>In-app wallet</td>
+            <td>In-app wallet</td>
+            <td>In-app wallet</td>
+            <td>Autopay</td>
+            <td>In-app wallet</td>
+          </tr>
+          <tr>
+            <td><strong>Discounts</strong></td>
+            <td>some products have discounts, some don't</td>
+            <td>some products have discounts, some don't</td>
+            <td>&mdash;</td>
+            <td>5% off on all eligible products, 10% off if subscribed to more than 3 products</td>
+            <td>some products have discounts, some don't</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Other major insight:</strong> Market conditions often lead to price fluctuations. Vegetables/fruits are highly susceptible to it.</p>
+
+      <div class="callout">
+        <p>This analysis helped me gaze how currently subscriptions are working and design relevant subscription model for our context.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ KEY DECISIONS ═══ */}
+  <section class="cs-section" id="decisions">
+    <div class="sec-head">
+      <h2>Key Decisions</h2>
+    </div>
+    <div class="cs-body">
+
+      {/* Payment method */}
+      <h3>Deciding Payment Method</h3>
+      <p>For recurring payments, the customers would be charged amount for every delivery. Other subscription platforms like <strong>bbdaily, Country delight, etc have their own in-app wallet</strong>, where customers recharge the wallet and the amount gets auto-deducted every delivery. <strong>Amazon offers Autopay</strong> (Debit/Credit Card & Amazon UPI) for payments.</p>
+
+      <div class="callout">
+        <p><strong>I decided to keep Autopay only</strong>, and <strong>not in-app wallet</strong> because that would incur additional cost and bandwidth for Dukaan to implement.</p>
+      </div>
+
+      <p><strong>Why wouldn't advance payment work?</strong> As from research, it has been observed that the <strong>quantity of items often varies</strong>, with people sometimes requiring more and other times needing less &mdash; coming up with an accurate amount would be difficult. Also, price fluctuations due to market conditions make it difficult as well.</p>
+
+      <hr class="sep" />
+
+      {/* Notification System */}
+      <h3>Evaluating Notification System Map</h3>
+      <p>I tried to visualize how subscription order notifications will be sent to customers.</p>
+
+      <div class="callout">
+        <p><strong>WhatsApp</strong> is the primary platform for communicating order-related updates. Whenever a customer places an order, Dukaan sends order-related messages through their official WhatsApp account on behalf of the seller. <strong>On average, Dukaan sends around 4&ndash;5 messages from order placement to successful delivery.</strong></p>
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/01-whatsapp-context.png" alt="WhatsApp notification context" />
+      </div>
+
+      <p>I attempted to map out the notifications flow considering both <strong>high-frequency</strong> (daily, weekly) and <strong>low-frequency</strong> (monthly) scenarios, in case of Autopay as a payment method.</p>
+
+      <h4>I. Payment Method: Autopay (High frequency e.g. daily)</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/02-autopay-high-freq.png" alt="Autopay high frequency notification flow" />
+      </div>
+
+      <p>This visualization helped me realize that <strong>Autopay wouldn't be the appropriate solution in case of high frequency</strong> (Daily) because of the following reasons:</p>
+
+      <div class="callout-insight">
+        <div class="tag">Problems with Autopay</div>
+        <p><strong>1. Too many notifications &mdash;</strong> For a single subscription order, on average 5&ndash;6 notifications are sent daily to the customer, that too on three different touchpoints (WhatsApp, SMS, e-mail). This might overwhelm the customer and can feel spammy as well.</p>
+        <p><strong>2. RBI Guideline &mdash;</strong> According to RBI regulations, it is mandatory to send a pre-debit notification at least 24 hours prior to the actual debit. As found in research, customers sometimes do need more/less quantities than usual, this rule makes it difficult for customers to make changes to their subscription order.</p>
+      </div>
+
+      <div class="callout-insight">
+        <div class="tag">Design Decision</div>
+        <p>Due to these constraints, <strong>I decided to keep an in-app wallet i.e. Dukaan Wallet as well</strong> for subscription order payments. Although Autopay can still work in case of low-frequency scenarios.</p>
+      </div>
+
+      <h4>II. Payment Method: Dukaan Wallet</h4>
+
+      <p><strong>Case 1 &mdash; High frequency (Daily)</strong></p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/03-wallet-high-freq.png" alt="Dukaan Wallet high frequency flow" />
+      </div>
+
+      <p>Here, order-related messages are sent daily/alternate days via WhatsApp, there is a risk that customers may feel overwhelmed by the number of messages they are receiving, leading to a feeling of being spammed.</p>
+
+      <div class="callout">
+        <p>To ensure a positive user experience, I have decided that <strong>customers should be given the ability to opt out the WhatsApp messages as well</strong>. They can choose to receive updates only when they specifically inquire about the order from Dukaan WhatsApp account.</p>
+      </div>
+
+      <p><strong>Case 2 &mdash; Low frequency (Monthly)</strong></p>
+      <p>Since the frequency is low, I decided to not give the autonomy to opt-out of notifications and it can be sent for each delivery to avoid missing out of deliveries.</p>
+
+      <hr class="sep" />
+
+      {/* Plugin vs Feature */}
+      <h3>Should Subscriptions Be a Plugin or Feature?</h3>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/04-plugin-vs-feature.png" alt="Plugin vs Feature comparison" />
+      </div>
+
+      <p>To decide whether something should be introduced as a plugin or a feature, several factors are considered:</p>
+      <ol>
+        <li>If the functionality is only needed or relevant to specific sellers/businesses, then it is introduced as a plugin.</li>
+        <li>Plugins are a way for Dukaan to generate revenue by introducing it as a paid plugin.</li>
+      </ol>
+
+      <div class="callout-insight">
+        <div class="tag">Design Decision</div>
+        <p>Based on my analysis, I decided to introduce <strong>subscription as a plugin</strong>. This is because subscription is a feature that is <strong>only needed by a specific audience</strong>, and it can be a <strong>monetization opportunity</strong> for Dukaan by introducing it as a paid plugin.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ DESIGN SOLUTION ═══ */}
+  <section class="cs-section" id="solution">
+    <div class="sec-head">
+      <h2>Design Solution</h2>
+    </div>
+    <div class="cs-body">
+      <p>Now, I'll take you through the design decisions I made and the visuals/iterations. I have followed Dukaan's current design style to maintain consistency.</p>
+
+      <h3>Install Plugin Screen</h3>
+      <p>The seller would install the plugin from the plugins section.</p>
+      <div class="cs-image full">
+        <img src="/images/dukaan/05-install-plugin.png" alt="Install Plugin screen" />
+      </div>
+
+      <p>Once the plugin was installed, the main aim was to provide clear information and direct the sellers to the specific location where they could start creating subscriptions.</p>
+
+      <h3>Plugin Installed Screen</h3>
+      <div class="cs-image full">
+        <img src="/images/dukaan/06-plugin-installed.png" alt="Plugin installed screen" />
+      </div>
+
+      <h3>Subscriptions Page</h3>
+      <div class="cs-image full">
+        <img src="/images/dukaan/07-subscriptions-page.png" alt="Subscriptions Page" />
+      </div>
+
+      <hr class="sep" />
+
+      <h3>I. Subscription Plan Creation Flow</h3>
+
+      <h4>Step 1: Product Selection & Discounts</h4>
+      <div class="cs-image full">
+        <img src="/images/dukaan/08-step1.png" alt="Step 1 of creation flow" />
+      </div>
+
+      <h4>Product Selection</h4>
+      <p>Clicking on 'Select Products' CTA will open up a modal window for product selection.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/09-product-selection-iterations.png" alt="Product selection modal iterations" />
+      </div>
+
+      <p>The problem with both of these iterations was:</p>
+      <ul>
+        <li><strong>Too much emphasis</strong> was given to <strong>selection of products by categories</strong>, when in reality categories are created by sellers themselves and are unorganized.</li>
+      </ul>
+
+      <h4>Final Product Selection</h4>
+      <p>Here, selection by categorization is <strong>given secondary importance</strong>. If required, the seller can filter the products by category by clicking on the dropdown option.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/10-product-selection-final.png" alt="Final product selection design" />
+      </div>
+
+      <div class="callout">
+        <p>Initially, I was <strong>showing inventory</strong> of the products so that the seller makes a conscious decision and <strong>chooses products that are in stock only</strong>, but soon after taking feedback realized that <strong>showing inventory doesn't help the seller</strong> &mdash; even if the product is low/out of stock, the seller should still be able to add the product to the subscription; it's just the customer won't be able to subscribe, it will be shown as out of stock to them.</p>
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/11-inventory-iteration.png" alt="Inventory showing iteration" />
+      </div>
+
+      <hr class="sep" />
+
+      <h4>Add Discount (Optional)</h4>
+      <p>Margins can be different for each product, so giving the option to set individual discount for each or set one for all at once by clicking on the "Add Bulk Discount".</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/12-add-discount.png" alt="Add discount screen" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/13-discount-variation.png" alt="Discount variation" />
+      </div>
+
+      <p>Below is a representation of how entering discount would work.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/14-entering-discount.png" alt="Entering discount interaction" />
+      </div>
+
+      <p><strong>Bulk Discount</strong> &mdash; Clicking on "Add bulk discount" will open a modal window.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/15-bulk-discount.png" alt="Bulk discount modal" />
+      </div>
+
+      <hr class="sep" />
+
+      <h4>Step 2: Frequency, Duration & Settings</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/16-step2.png" alt="Step 2 overview" />
+      </div>
+
+      <h4>a. Frequency Selection</h4>
+      <p>As I found in the research, frequency primarily depends upon the need and consumption of individuals. Some might need daily essentials like bread/milk daily while others might need it alternate days/weekends/twice a week etc. It becomes crucial for the seller to allow the frequency to suit/fit their customer needs.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/17-frequency-variations.png" alt="Frequency selection variations" />
+      </div>
+
+      <p>After this, I was exploring the possibility of showing previews on hover so the seller understands what each option means and looks like on the customer-front.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/18-hover-preview.png" alt="Hover preview exploration" />
+      </div>
+
+      <div class="callout-insight">
+        <div class="tag">The Challenge</div>
+        <p>Here <strong>selecting frequency totally depends upon the knowledge of the seller</strong>. If the right frequency is not given, customers are not going to subscribe, <strong>which will result in losing out of potential customers</strong>. Hence it becomes very crucial to give the right frequency for the product.</p>
+      </div>
+
+      <div class="callout-insight">
+        <div class="tag">Design Decision</div>
+        <p>Upon realizing how important allowing the right frequency is, <strong>I decided to keep every option auto-selected on default</strong>. The seller can deselect the option they don't want. This solves following problems:</p>
+        <ul>
+          <li>Seller doesn't have to think what will be the right frequency to select (decreases cognitive load)</li>
+          <li>Even if all the options are given to customers, customers will select whatever is suitable for their needs and consumption</li>
+          <li>Letting sellers unselect the frequencies they don't require seems like a safe choice to avoid confusion and errors</li>
+        </ul>
+      </div>
+
+      <p>Now that I decided to keep every option in frequency auto-selected, showing previews here doesn't serve any purpose because:</p>
+      <ul>
+        <li>Here the <strong>intent of the seller is not to make a selection but to deselect an option they don't want</strong> to give.</li>
+        <li>Showing previews when the primary intent of the seller is to deselect seems contradictory and makes no sense.</li>
+      </ul>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/19-preview-removal.png" alt="Preview removal rationale" />
+      </div>
+
+      <h4>Final Screen &mdash; Every option auto-selected by default</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/20-frequency-final.png" alt="Final frequency screen" />
+      </div>
+
+      <h4>Add Custom Frequency</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/21-custom-frequency.png" alt="Custom frequency" />
+      </div>
+
+      <p><strong>Why do we need custom frequency?</strong> Although we've given all the most common frequencies customers reorder, knowing Dukaan is a universal platform where any kind of business can set up a store &mdash; if someone wants to give a very specific frequency or a lower frequency like every 3/4 months for items like protein/supplements, we're giving this option.</p>
+
+      <hr class="sep" />
+
+      <h4>b. Duration Selection</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/22-duration-selection.png" alt="Duration selection" />
+      </div>
+
+      <p>The reason for giving indefinite and definite both as an option is because I found in my research that <strong>these kinds of subscription models exist on other platforms</strong>, this allows sellers to choose the option they find suitable for their store/business.</p>
+
+      <hr class="sep" />
+
+      <h4>c. Auto-Accept Subscription Orders</h4>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/23-auto-accept.png" alt="Auto-accept toggle" />
+      </div>
+
+      <p>Instead of manually accepting each subscription order for every customer, the seller can choose to auto-accept it.</p>
+
+      <hr class="sep" />
+
+      <h3>II. Payment Setup</h3>
+
+      <div class="cs-image-pair">
+        <div class="cs-image">
+          <img src="/images/dukaan/24-payment-setup-1.png" alt="Payment setup - Wallet configuration" />
+        </div>
+        <div class="cs-image">
+          <img src="/images/dukaan/25-payment-setup-2.png" alt="Payment setup - Autopay configuration" />
+        </div>
+      </div>
+
+      <hr class="sep" />
+
+      <h3>III. Adding Subscription While Adding New Product</h3>
+      <p>In the add new product form, Dukaan uses accordions for inputs that are optional and secondary. Hence, I've also used accordions for subscriptions.</p>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/26-add-product-accordion.png" alt="Add product with subscription accordion" />
+      </div>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/27-accordion-expanded.png" alt="Accordion expanded" />
+      </div>
+    </div>
+  </section>
+
+  {/* ═══ LEARNINGS ═══ */}
+  <section class="cs-section" id="learnings">
+    <div class="sec-head">
+      <h2>Learnings</h2>
+    </div>
+    <div class="cs-body">
+      <p>This project has been a roller coaster ride of learning and growth. I've faced challenges that have pushed me beyond my limits, but I've also learned a ton and grown as a designer.</p>
+
+      <ol>
+        <li><strong>System-level thinking matters.</strong> Mapping the notification system early revealed constraints that changed the entire payment strategy.</li>
+        <li><strong>Default states are design decisions.</strong> Auto-selecting all frequencies was a deliberate choice to reduce risk &mdash; deselection is safer than selection when stakes are high.</li>
+        <li><strong>Research depth pays off.</strong> Understanding both seller and customer perspectives made the solution significantly more grounded.</li>
+      </ol>
+
+      <h3>Some Behind the Scenes</h3>
+
+      <div class="cs-image full">
+        <img src="/images/dukaan/28-bts-1.png" alt="Behind the scenes" />
+      </div>
+
+      <p>Thank you for taking the time to read this, hope you liked it!</p>
+    </div>
+  </section>
+
+</CaseStudy>

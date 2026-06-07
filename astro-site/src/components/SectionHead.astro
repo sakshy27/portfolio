@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  count: string;
+  separator?: boolean;
+}
+
+const { title, count, separator = false } = Astro.props;
+---
+
+<div class="sec-head" data-sep={separator ? "true" : undefined}>
+  <h2>{title}</h2>
+  <span class="count">{count}</span>
+</div>
+
+<style>
+  .sec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: var(--space-14);
+    margin-bottom: var(--space-8);
+    border-bottom: none;
+  }
+  .sec-head[data-sep] {
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  }
+  h2 {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .count {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>

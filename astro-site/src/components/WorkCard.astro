@@ -1,0 +1,104 @@
+---
+interface Props {
+  href: string;
+  kicker: string;
+  title: string;
+  desc: string;
+  thumbClass?: string;
+  thumbImage?: string;
+}
+
+const { href, kicker, title, desc, thumbClass, thumbImage } = Astro.props;
+---
+
+<a href={href} class="work">
+  {thumbImage ? (
+    <div class="thumb thumb-img">
+      <img src={thumbImage} alt={title} />
+    </div>
+  ) : (
+    <div class:list={['thumb', thumbClass]}></div>
+  )}
+  <div class="w-content">
+    <div class="w-meta">
+      <span class="w-kicker">{kicker}</span>
+      <svg class="w-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8h9M8.5 4l4 4-4 4"/></svg>
+    </div>
+    <div class="w-title">{title}</div>
+    <div class="w-desc">{desc}</div>
+  </div>
+</a>
+
+<style>
+  .work {
+    display: block;
+    transition: transform var(--ease-card);
+  }
+  .work:hover .w-title { color: var(--accent); }
+  .work:hover .w-arrow { transform: translateX(4px); }
+  .thumb {
+    aspect-ratio: 16 / 10;
+    position: relative;
+    overflow: hidden;
+    background: var(--line-2);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-24);
+    transition: transform var(--ease-card);
+  }
+  .w-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-16);
+    margin-bottom: var(--space-12);
+  }
+  .w-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .w-arrow {
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform var(--ease-arrow);
+  }
+  .w-title {
+    font-size: var(--text-work-title);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-4);
+    color: var(--ink);
+    transition: color var(--ease-default);
+  }
+  .w-desc {
+    font-size: var(--text-desc);
+    color: var(--ink-2);
+    line-height: var(--leading-body);
+    max-width: 100%;
+  }
+
+  /* Thumbnail treatments — solid fill placeholders */
+  .thumb-1,
+  .thumb-2,
+  .thumb-3,
+  .thumb-4 {
+    background: var(--line-2);
+  }
+
+  .thumb-img {
+    aspect-ratio: auto;
+  }
+  .thumb-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  @media (max-width: 600px) {
+    .w-title { font-size: 19px; }
+  }
+</style>

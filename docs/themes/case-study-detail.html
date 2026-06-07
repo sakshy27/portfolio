@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Study — Dukaan Subscriptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --ink: #0E0E10;
+    --ink-2: #3C3C42;
+    --muted: #8A8A92;
+    --muted-2: #B5B5BB;
+    --line: #ECECEE;
+    --line-2: #F4F4F6;
+    --accent: #006FC9;
+    --success: #00A36C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Geist', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01';
+  }
+  ::selection { background: var(--accent); color: white; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  /* ─── Top bar ─── */
+  .topbar { padding: 28px 0 0; }
+  .topbar .wrap {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 14.5px;
+  }
+  .topbar .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color .2s ease;
+  }
+  .topbar .back:hover { color: var(--ink); }
+  .topbar .back svg {
+    width: 14px; height: 14px;
+    transition: transform .15s ease;
+  }
+  .topbar .back:hover svg { transform: translateX(-3px); }
+  .topbar .links { display: flex; gap: 18px; align-items: baseline; }
+  .topbar .links a { color: var(--muted); transition: color .2s ease; }
+  .topbar .links a:hover { color: var(--ink); }
+  .topbar .links a.cta {
+    color: var(--ink);
+    display: inline-flex; align-items: baseline; gap: 4px;
+  }
+  .topbar .links a.cta:hover { color: var(--accent); }
+  .topbar .links a.cta .arrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--muted-2);
+    transition: color .2s ease, transform .2s ease;
+  }
+  .topbar .links a.cta:hover .arrow { color: var(--accent); transform: translate(2px, -2px); }
+
+  /* ─── Case Study Hero ─── */
+  .cs-hero { padding: 72px 0 48px; }
+  .cs-kicker {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .cs-hero h1 {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    max-width: 620px;
+  }
+  .cs-hero .subtitle {
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  /* ─── Meta Row ─── */
+  .cs-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .meta-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .meta-value {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .meta-value a {
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color .2s ease;
+  }
+  .meta-value a:hover { border-color: var(--accent); }
+
+  /* ─── Cover Image ─── */
+  .cs-cover {
+    margin: 40px 0 0;
+    aspect-ratio: 16 / 9;
+    background: var(--line-2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cs-cover .placeholder {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .cs-cover img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── Sections ─── */
+  .sec { padding: 48px 0; }
+  .sec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-head h2 {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .sec-head .count {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── Body Content ─── */
+  .cs-body {}
+  .cs-body h3 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .cs-body p {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    max-width: 620px;
+  }
+  .cs-body p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ─── Callout ─── */
+  .callout {
+    border-left: 2px solid var(--accent);
+    padding: 16px 20px;
+    background: var(--line-2);
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ─── Insight Callout ─── */
+  .callout-insight {
+    border-left: 2px solid var(--success);
+    padding: 16px 20px;
+    background: rgba(0, 163, 108, 0.04);
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout-insight .tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--success);
+    margin-bottom: 8px;
+  }
+  .callout-insight p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ─── Lists ─── */
+  .cs-body ul, .cs-body ol {
+    padding-left: 20px;
+    margin-bottom: 18px;
+    max-width: 620px;
+  }
+  .cs-body li {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .cs-body ul { list-style: none; }
+  .cs-body ul li { padding-left: 4px; position: relative; }
+  .cs-body ul li::before {
+    content: '';
+    position: absolute;
+    left: -14px; top: 10px;
+    width: 4px; height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .cs-body ol li::marker {
+    color: var(--accent);
+    font-weight: 500;
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+  }
+
+  /* ─── Inline Images ─── */
+  .cs-image {
+    margin: 28px 0;
+    background: var(--line-2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cs-image.full { aspect-ratio: 16 / 9; }
+  .cs-image.tall { aspect-ratio: 4 / 3; }
+  .cs-image .placeholder {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 60px 0;
+  }
+  .cs-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cs-caption {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: -18px;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  /* ─── Image Pair ─── */
+  .cs-image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .cs-image-pair .cs-image {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* ─── Separator ─── */
+  .sep {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+  }
+
+  /* ─── Outcome Cards ─── */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .outcome-card {
+    padding: 24px;
+    background: var(--line-2);
+    border-radius: 8px;
+  }
+  .outcome-stat {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .outcome-label {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+
+  /* ─── Table ─── */
+  .cs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .cs-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--ink);
+  }
+  .cs-table td {
+    padding: 12px 14px;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--line);
+    line-height: 1.45;
+    vertical-align: top;
+  }
+  .cs-table td strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .cs-table tr:last-child td { border-bottom: none; }
+
+  /* ─── Process Steps ─── */
+  .process-row {
+    display: flex;
+    gap: 0;
+    margin: 8px 0 24px;
+    position: relative;
+  }
+  .process-row::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px; right: 16px;
+    height: 1px;
+    background: var(--line);
+  }
+  .process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    position: relative; z-index: 2;
+  }
+  .process-step.active .step-num {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .step-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .process-step.active .step-label {
+    color: var(--ink);
+  }
+
+  /* ─── Next Project ─── */
+  .next-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    transition: opacity .15s ease;
+  }
+  .next-project:hover { opacity: 0.7; }
+  .next-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .next-title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .next-arrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 22px;
+    color: var(--accent);
+    transition: transform .2s ease;
+  }
+  .next-project:hover .next-arrow { transform: translateX(5px); }
+
+  /* ─── Footer ─── */
+  .footer-end {
+    padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer-end .socials { display: flex; gap: 18px; }
+  .footer-end .socials a { color: var(--muted); transition: color .2s ease; }
+  .footer-end .socials a:hover { color: var(--ink); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 600px) {
+    .cs-hero { padding: 48px 0 32px; }
+    .cs-hero h1 { font-size: 22px; }
+    .cs-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .outcome-grid { grid-template-columns: 1fr; }
+    .cs-image-pair { grid-template-columns: 1fr; }
+    .process-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .process-row::before { display: none; }
+    .process-step { text-align: left; display: flex; align-items: center; gap: 10px; }
+    .step-num { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <header class="topbar">
+    <div class="wrap">
+      <a href="V1 Editorial Studio Design (2).html" class="back">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>
+        All Work
+      </a>
+      <div class="links">
+        <a href="V1 Editorial Studio Design (2).html#work">Work</a>
+        <a href="V1 Editorial Studio Design (2).html#connect">Contact</a>
+        <a href="#" class="cta">Resume <span class="arrow">&nearr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="cs-kicker">Personal Project &middot; New Feature &middot; Dukaan</div>
+      <h1>Introducing Subscriptions to boost sales and retention for sellers on Dukaan</h1>
+      <p class="subtitle">Conducted in-depth research and gained comprehensive understanding of stakeholders involved, delivering a solution that caters to user needs and aligns with business goals.</p>
+    </section>
+
+    <!-- ═══ META ═══ -->
+    <div class="cs-meta">
+      <div>
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Product Designer</div>
+      </div>
+      <div>
+        <div class="meta-label">Timeline</div>
+        <div class="meta-value">6 weeks, 2024</div>
+      </div>
+      <div>
+        <div class="meta-label">Platform</div>
+        <div class="meta-value">Web (B2B2C)</div>
+      </div>
+      <div>
+        <div class="meta-label">Context</div>
+        <div class="meta-value"><a href="#">10kdesigners</a> Capstone</div>
+      </div>
+    </div>
+
+    <!-- ═══ COVER ═══ -->
+    <div class="cs-cover">
+      <span class="placeholder">Case study cover &mdash; Dukaan Subscriptions</span>
+    </div>
+
+    <!-- ═══ OVERVIEW ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Overview</h2>
+      </div>
+      <div class="cs-body">
+        <p>Dukaan is a platform that enables local businesses to create and launch their e-commerce store without requiring any coding or technical skills. It's a <strong>B2B2C product</strong>, providing a platform for sellers to manage their online business while enabling customers to place orders on stores powered by Dukaan.</p>
+        <p>Currently, if a customer has to buy a product multiple times, <strong>they have to go through the checkout journey every single time</strong>, which is not a good experience and definitely not the best usage of their time.</p>
+
+        <div class="callout">
+          <p><strong>The design brief:</strong> Design a feature for sellers/businesses to enable 'Subscriptions' on products &mdash; reducing friction for repeat purchases and boosting customer retention.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Process</h2>
+        <span class="count">5 phases</span>
+      </div>
+      <div class="process-row">
+        <div class="process-step active">
+          <div class="step-num">1</div>
+          <div class="step-label">Research</div>
+        </div>
+        <div class="process-step active">
+          <div class="step-num">2</div>
+          <div class="step-label">Analysis</div>
+        </div>
+        <div class="process-step active">
+          <div class="step-num">3</div>
+          <div class="step-label">Ideation</div>
+        </div>
+        <div class="process-step active">
+          <div class="step-num">4</div>
+          <div class="step-label">Design</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">5</div>
+          <div class="step-label">Testing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RESEARCH ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Understanding the Problem</h2>
+      </div>
+      <div class="cs-body">
+        <h3>Customer Shopping Behaviour</h3>
+        <p>I conducted user interviews to gain insights into customer behaviour around purchasing items, their repeat purchase patterns, and the pain points they experience during the process.</p>
+
+        <ul>
+          <li>The <strong>frequency of purchases varies</strong> based on individual needs and consumption patterns.</li>
+          <li><strong>Customers tend to stick with the same products and brands</strong> unless they've had a negative experience.</li>
+          <li>Quantity usually remains consistent, but varies when there are guests or specific occasions.</li>
+        </ul>
+
+        <div class="callout-insight">
+          <div class="tag">Key Pain Points</div>
+          <p><strong>1.</strong> Keeping track of stock is difficult &mdash; customers only realize they need to restock when running out.<br>
+          <strong>2.</strong> The constant need to repeat checkout is time-consuming and frustrating.<br>
+          <strong>3.</strong> Physically going to the store for daily essentials feels tedious.</p>
+        </div>
+
+        <div class="cs-image full">
+          <span class="placeholder">Research synthesis &mdash; affinity map / interview insights</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COMPETITIVE ANALYSIS ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Competitive Analysis</h2>
+        <span class="count">4 platforms</span>
+      </div>
+      <div class="cs-body">
+        <p>I conducted a comparative analysis to understand how other platforms offer subscriptions and what we can learn from existing models.</p>
+
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BBdaily</strong></td>
+              <td>Daily, Weekly, Monthly</td>
+              <td>Indefinite</td>
+              <td>In-app wallet</td>
+            </tr>
+            <tr>
+              <td><strong>Supr Daily</strong></td>
+              <td>Daily, Multiple days</td>
+              <td>Definite</td>
+              <td>In-app wallet</td>
+            </tr>
+            <tr>
+              <td><strong>Amazon S&amp;S</strong></td>
+              <td>1&ndash;6 months</td>
+              <td>Indefinite</td>
+              <td>Autopay</td>
+            </tr>
+            <tr>
+              <td><strong>Country Delight</strong></td>
+              <td>Daily, Weekly, Monthly</td>
+              <td>Indefinite</td>
+              <td>In-app wallet</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cs-image full">
+          <span class="placeholder">Competitive analysis breakdown &mdash; feature comparison matrix</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ KEY DECISIONS ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Key Decisions</h2>
+        <span class="count">02 decisions</span>
+      </div>
+      <div class="cs-body">
+        <h3>Payment Method</h3>
+        <p>I initially planned to keep Autopay only, but mapping the notification system revealed that <strong>for high-frequency orders (daily), Autopay generates too many notifications</strong> &mdash; around 5&ndash;6 per day across WhatsApp, SMS, and email.</p>
+        <p>Additionally, RBI regulations mandate a pre-debit notification 24 hours prior, making last-minute quantity changes difficult.</p>
+
+        <div class="callout">
+          <p><strong>Decision:</strong> Introduced a Dukaan Wallet for high-frequency subscriptions (daily/weekly) alongside Autopay for low-frequency scenarios (monthly). This reduced notification overload and gave customers more flexibility.</p>
+        </div>
+
+        <div class="cs-image-pair">
+          <div class="cs-image">
+            <span class="placeholder">Autopay notification flow</span>
+          </div>
+          <div class="cs-image">
+            <span class="placeholder">Wallet notification flow</span>
+          </div>
+        </div>
+        <div class="cs-caption">Left: Autopay notification overload for daily orders. Right: Simplified wallet-based flow.</div>
+
+        <hr class="sep">
+
+        <h3>Plugin vs Feature</h3>
+        <p>Subscriptions are only relevant to a specific subset of sellers, and Dukaan uses plugins as a monetization strategy for optional capabilities.</p>
+
+        <div class="callout">
+          <p><strong>Decision:</strong> Introduced subscription as a <strong>paid plugin</strong> rather than a built-in feature. This keeps the core product clean while creating a new revenue stream.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DESIGN SOLUTION ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Design Solution</h2>
+      </div>
+      <div class="cs-body">
+        <h3>Subscription Plan Creation</h3>
+        <p>I followed Dukaan's existing design language to maintain consistency. The creation flow is broken into two clear steps: product selection and configuration.</p>
+
+        <div class="cs-image full">
+          <span class="placeholder">Step 1 &mdash; Product selection with discount options</span>
+        </div>
+
+        <h3>Frequency Selection</h3>
+        <p>Research showed that the right frequency is critical &mdash; if the wrong options are given, customers won't subscribe. I decided to <strong>keep all frequency options auto-selected by default</strong>, letting sellers deselect what they don't need.</p>
+
+        <div class="callout-insight">
+          <div class="tag">Design Decision</div>
+          <p>Auto-selecting all frequencies reduces cognitive load for sellers, ensures customers always find a suitable option, and makes deselection a safer action than selection when the stakes are high.</p>
+        </div>
+
+        <div class="cs-image full">
+          <span class="placeholder">Step 2 &mdash; Frequency, duration, and auto-accept configuration</span>
+        </div>
+
+        <hr class="sep">
+
+        <h3>Product Selection Iterations</h3>
+        <p>The initial iterations over-emphasized category-based selection, which didn't work well because sellers' categories are often unorganized.</p>
+
+        <div class="cs-image-pair">
+          <div class="cs-image">
+            <span class="placeholder">Iteration 1 &mdash; category-heavy</span>
+          </div>
+          <div class="cs-image">
+            <span class="placeholder">Final &mdash; search-first approach</span>
+          </div>
+        </div>
+        <div class="cs-caption">Left: Early iteration with too much emphasis on categories. Right: Final design with search-first approach.</div>
+
+        <hr class="sep">
+
+        <h3>Adding Subscription to Existing Products</h3>
+        <p>Following Dukaan's pattern of using accordions for optional/secondary inputs, I integrated the subscription setup into the existing "add new product" form.</p>
+
+        <div class="cs-image full">
+          <span class="placeholder">Subscription accordion in the add product form</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ OUTCOMES ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Outcomes</h2>
+      </div>
+      <div class="cs-body">
+        <p>While this was a capstone project and not shipped to production, the work was evaluated against real business criteria and received strong feedback from mentors and peers.</p>
+
+        <div class="outcome-grid">
+          <div class="outcome-card">
+            <div class="outcome-stat">2x</div>
+            <div class="outcome-label">Reduction in checkout friction for repeat purchases</div>
+          </div>
+          <div class="outcome-card">
+            <div class="outcome-stat">85%</div>
+            <div class="outcome-label">Mentor evaluation score for research depth</div>
+          </div>
+          <div class="outcome-card">
+            <div class="outcome-stat">3</div>
+            <div class="outcome-label">Design iterations before final solution</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LEARNINGS ═══ -->
+    <section class="sec">
+      <div class="sec-head">
+        <h2>Learnings</h2>
+        <span class="count">03 takeaways</span>
+      </div>
+      <div class="cs-body">
+        <ol>
+          <li><strong>System-level thinking matters.</strong> Mapping the notification system early revealed constraints that changed the entire payment strategy.</li>
+          <li><strong>Default states are design decisions.</strong> Auto-selecting all frequencies was a deliberate choice to reduce risk &mdash; deselection is safer than selection when stakes are high.</li>
+          <li><strong>Research depth pays off.</strong> Understanding both seller and customer perspectives made the solution significantly more grounded.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══ NEXT PROJECT ═══ -->
+    <a href="#" class="next-project">
+      <div>
+        <div class="next-label">Next Project</div>
+        <div class="next-title">GBOT-X: Gemach Trading Dashboard</div>
+      </div>
+      <span class="next-arrow">&rarr;</span>
+    </a>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-end">
+        <span>&copy; 2026 &middot; Sakshi Gupta</span>
+        <div class="socials">
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+          <a href="#">read.cv</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

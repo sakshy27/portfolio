@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 2 — Bold Name</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #0A0A0A;
+    color: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 840px;
+    width: 100%;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    background: #34C759;
+    border-radius: 50%;
+  }
+  .hello {
+    font-size: 18px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
+  }
+  .role {
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .role a {
+    color: #F0F0F0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(255,255,255,0.3);
+    transition: text-decoration-color 0.15s;
+  }
+  .role a:hover { text-decoration-color: #fff; }
+  .bio {
+    font-size: 17px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 600px;
+  }
+  .actions {
+    display: flex;
+    gap: 12px;
+  }
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-light {
+    background: #F0F0F0;
+    color: #0A0A0A;
+    border: 1px solid #F0F0F0;
+  }
+  .btn-light:hover { background: #fff; }
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #F0F0F0;
+    color: #0A0A0A;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge"><span class="dot"></span> Available for Work</div>
+    <p class="hello">Hello, I Am</p>
+    <h1>Sakshi</h1>
+    <p class="role">Product Designer at <a href="https://juspay.io/in">Juspay</a></p>
+    <p class="bio">I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional.</p>
+    <div class="actions">
+      <a href="mailto:sakshigupta9368@gmail.com" class="btn btn-light">&#9993; E-mail</a>
+      <a href="https://www.linkedin.com/in/sakshi-gupta-225a3020b/" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </div>
+  <div class="tag">Hero 2 — Bold Name Dark (Tanvi style)</div>
+</body>
+</html>

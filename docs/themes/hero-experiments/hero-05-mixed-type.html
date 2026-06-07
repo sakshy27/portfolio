@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 5 — Mixed Typography</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #F8F9FC;
+    color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 840px;
+    width: 100%;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #9BA1A5;
+    margin-bottom: 32px;
+  }
+  .badge .dot {
+    width: 7px;
+    height: 7px;
+    background: #2D6DC4;
+    border-radius: 50%;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .headline-serif {
+    font-family: 'Newsreader', serif;
+    font-size: 44px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    color: #2D6DC4;
+    margin-bottom: 24px;
+  }
+  .bio {
+    font-size: 17px;
+    color: #4A4A4A;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .bio a {
+    color: #2D6DC4;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(45, 109, 196, 0.3);
+  }
+  .bio a:hover { text-decoration-color: #2D6DC4; }
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn {
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: #2D6DC4;
+    color: #fff;
+    border: 1px solid #2D6DC4;
+  }
+  .btn-primary:hover { background: transparent; color: #2D6DC4; }
+  .btn-secondary {
+    background: transparent;
+    color: #151515;
+    border: 1px solid #DDE0DC;
+  }
+  .btn-secondary:hover { background: #F1EFED; }
+  .tag {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2D6DC4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge"><span class="dot"></span> Product Designer at <strong>Juspay</strong> &mdash; Bengaluru</div>
+    <h1>I design products with</h1>
+    <p class="headline-serif">intention & detail, not just interfaces.</p>
+    <p class="bio">
+      I believe that great design goes beyond interfaces, diving into the minute details makes the experience truly exceptional. Currently designing at <a href="https://juspay.io/in">Juspay</a>, previously at <a href="#">Intentionally Designed Solutions</a>.
+    </p>
+    <div class="actions">
+      <a href="#" class="btn btn-primary">Book a Call</a>
+      <a href="#" class="btn btn-secondary">Resume</a>
+    </div>
+  </div>
+  <div class="tag">Hero 5 — Mixed Type (split sans + serif)</div>
+</body>
+</html>

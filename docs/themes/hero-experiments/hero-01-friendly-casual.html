@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Experiment 1 — Friendly Casual</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    background: #F8F9FC;
+    color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+  }
+  .hero {
+    max-width: 840px;
+    width: 100%;
+  }
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .smiley {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .smiley:hover {
+    transform: scale(1.15) rotate(10deg);
+  }
+  .smiley .eyes-default { opacity: 1; transition: opacity 0.2s; }
+  .smiley .eyes-hover { opacity: 0; transition: opacity 0.2s; }
+  .smiley .mouth-default { opacity: 1; transition: opacity 0.2s; }
+  .smiley .mouth-hover { opacity: 0; transition: opacity 0.2s; }
+  .smiley:hover .eyes-default { opacity: 0; }
+  .smiley:hover .eyes-hover { opacity: 1; }
+  .smiley:hover .mouth-default { opacity: 0; }
+  .smiley:hover .mouth-hover { opacity: 1; }
+  .reaction {
+    opacity: 0;
+    font-size: 18px;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(4px);
+    pointer-events: none;
+  }
+  .badge-row:hover .reaction {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4A4A4A;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    background: #34C759;
+    border-radius: 50%;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .role {
+    font-size: 18px;
+    color: #9BA1A5;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .role a {
+    color: #151515;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: #2D6DC4;
+    transition: text-decoration-color 0.15s;
+  }
+  .role a:hover { text-decoration-color: #151515; }
+  .bio {
+    font-size: 20px;
+    color: #4A4A4A;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .bio .accent {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    color: #2D6DC4;
+    font-size: 22px;
+  }
+  .bio a {
+    color: #151515;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: #DDE0DC;
+    margin: 32px 0;
+  }
+  .prev {
+    font-size: 14px;
+    color: #9BA1A5;
+    margin-bottom: 12px;
+  }
+  .companies {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .companies a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2D6DC4;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .companies a:hover { opacity: 0.7; }
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9BA1A5;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2D6DC4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge-row">
+      <svg class="smiley" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="rough">
+            <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="4" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+        <!-- face circle -->
+        <circle cx="50" cy="50" r="42" stroke="#D4A017" stroke-width="5" stroke-linecap="round" fill="none" style="filter:url(#rough)"/>
+        <!-- default: simple smile -->
+        <g class="eyes-default">
+          <ellipse cx="36" cy="40" rx="3.5" ry="5" fill="#D4A017"/>
+          <ellipse cx="64" cy="40" rx="3.5" ry="5" fill="#D4A017"/>
+        </g>
+        <path class="mouth-default" d="M34 60 C40 70, 60 70, 66 60" stroke="#D4A017" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <!-- hover: heart eyes + big grin -->
+        <g class="eyes-hover">
+          <path d="M30 38 C30 32, 36 30, 36 36 C36 30, 42 32, 42 38 L36 46 Z" fill="#D4A017"/>
+          <path d="M58 38 C58 32, 64 30, 64 36 C64 30, 70 32, 70 38 L64 46 Z" fill="#D4A017"/>
+        </g>
+        <path class="mouth-hover" d="M28 56 C34 76, 66 76, 72 56 Z" fill="#D4A017" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="reaction">&#10024;</span>
+    </div>
+    <h1>Hey there! I'm Sakshi</h1>
+    <p class="role">Product Designer at <a href="https://juspay.io/in">Juspay</a></p>
+    <p class="bio">
+      I believe that great design goes beyond interfaces &mdash; diving into <span class="accent">intention & detail</span> makes the experience truly exceptional.
+    </p>
+  </div>
+  <div class="tag">Hero 1 — Friendly Casual (Pragya style)</div>
+</body>
+</html>
