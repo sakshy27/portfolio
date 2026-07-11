@@ -1,0 +1,126 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'audience', label: 'Target Audience' },
+  { id: 'goal', label: 'Goal' },
+  { id: 'impact', label: 'Impact' },
+];
+---
+
+<CaseStudy
+  title="Building the agent creation experience"
+  kicker="New Feature · Work Project · Juspay"
+  description="A deep dive into the agent creation space, shaping an experience for 1600+ employees at Juspay to build agents for their own workflows and work alongside them."
+  role="Product Designer"
+  timeline="2025"
+  platform="Web (Internal Tool)"
+  context="Juspay"
+  sections={sections}
+  nextProject={{ href: "/work/dukaan", title: "Introducing Subscriptions on Dukaan" }}
+>
+
+  <div class="cs-cover agents-cover">
+    <img src="/images/agents.png" alt="Agent creation experience cover" />
+  </div>
+
+  {/* ═══ OVERVIEW ═══ */}
+  <section class="cs-section agents-section" id="overview">
+    <div class="sec-head">
+      <h2>Overview</h2>
+    </div>
+    <div class="cs-body">
+      <p>As a Product Designer at Juspay, I designed the <strong>end-to-end AI agent creation experience</strong> for <strong>Xyne</strong>, our internal collaboration and work communication platform built to enable <strong>seamless collaboration between humans and AI agents</strong>.</p>
+
+      <p>The project focused on creating a <strong>scalable framework</strong> for <strong>building, publishing, and managing AI agents</strong>&mdash;designed not only for Xyne but as a foundation that could be extended across other internal Juspay products.</p>
+    </div>
+  </section>
+
+  {/* ═══ TARGET AUDIENCE ═══ */}
+  <section class="cs-section agents-section no-following-separator" id="audience">
+    <div class="sec-head">
+      <h2>Target Audience</h2>
+    </div>
+    <div class="cs-body">
+      <p>Designed for <strong>1,600+ Juspay employees</strong> across diverse functions, including Engineering, Product, Design, Marketing, HR, Operations, and Business teams.</p>
+    </div>
+  </section>
+
+  {/* ═══ GOAL ═══ */}
+  <section class="cs-section agents-section no-following-separator" id="goal">
+    <div class="sec-head">
+      <h2>Goal</h2>
+    </div>
+    <div class="cs-body">
+      <p>Design an <strong>intuitive, seamless agent creation experience</strong> that enables anyone from technical to non-technical background to <strong>create, customize, and publish AI agents</strong>.</p>
+
+      <p>The experience was built to support users with <strong>varying levels of technical expertise</strong>, enabling anyone to create and leverage AI agents as part of their <strong>everyday workflows</strong>.</p>
+    </div>
+  </section>
+
+  {/* ═══ IMPACT ═══ */}
+  <section class="cs-section agents-section" id="impact">
+    <div class="sec-head">
+      <h2>Impact</h2>
+    </div>
+    <div class="cs-body">
+      <ul class="impact-list">
+        <li>Successfully launched to <strong>1,600+ employees</strong> across Juspay.</li>
+        <li>Increased <strong>accessibility of AI</strong> by enabling users across technical and non-technical teams to create agents.</li>
+        <li>Simplified <strong>repetitive workflows</strong> through reusable AI agents.</li>
+        <li>Enabled <strong>knowledge sharing</strong> through publishable and reusable agents.</li>
+        <li>Built a <strong>reusable framework</strong> that supports future AI experiences across the Xyne ecosystem.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="nda-banner">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+    This project is under NDA. Happy to discuss in detail on call.
+  </div>
+
+</CaseStudy>
+
+<style is:global>
+  .agents-cover {
+    aspect-ratio: unset;
+    height: auto;
+  }
+  .agents-cover img {
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+  }
+  .nda-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: var(--space-32);
+    padding: var(--space-16) 20px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: var(--radius-md);
+    font-size: var(--text-desc);
+    color: var(--ink-2);
+  }
+  .nda-banner svg { flex-shrink: 0; color: rgb(59, 130, 246); }
+  .nda-banner a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    transition: border-color var(--ease-default);
+  }
+  .nda-banner a:hover { border-color: var(--ink); }
+  .impact-list {
+    margin: 0;
+    padding-left: 1.25em;
+  }
+  .impact-list li + li { margin-top: 10px; }
+  .agents-section .sec-head {
+    border-bottom-color: color-mix(in srgb, var(--ink) 15.6%, var(--bg));
+  }
+  .no-following-separator + .cs-section { border-top: 0; }
+  #audience,
+  #goal,
+  #impact { border-top: 0; }
+</style>
