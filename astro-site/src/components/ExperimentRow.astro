@@ -3,48 +3,117 @@ interface Props {
   href: string;
   title: string;
   desc: string;
+  previewSrc?: string;
+  horizontalPreviewSrc?: string;
+  fullWidth?: boolean;
 }
 
-const { href, title, desc } = Astro.props;
+const { href, title, desc, previewSrc, horizontalPreviewSrc, fullWidth } = Astro.props;
 ---
 
 <a href={href} class="exp" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
+  <div class={`e-frame${fullWidth ? ' full-width' : ''}`}>
+    <div class="e-thumb">
+      {previewSrc ? (
+        <video src={previewSrc} autoplay loop muted playsinline class="e-video e-video--main" />
+      ) : (
+        <div class="e-placeholder"></div>
+      )}
+      {horizontalPreviewSrc && (
+        <video src={horizontalPreviewSrc} autoplay loop muted playsinline class="e-video e-video--horiz" />
+      )}
+    </div>
+  </div>
   <div class="e-body">
-    <div class="e-title">{title}</div>
+    <div class="e-meta">
+      <div class="e-title">{title}</div>
+      <svg class="e-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8h9M8.5 4l4 4-4 4"/></svg>
+    </div>
     <div class="e-desc">{desc}</div>
   </div>
-  <svg class="e-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8h9M8.5 4l4 4-4 4"/></svg>
 </a>
 
 <style>
   .exp {
-    display: grid;
-    grid-template-columns: 1fr 24px;
-    gap: var(--space-18);
-    padding: var(--space-16) 0;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    transition: padding var(--ease-default);
+    display: block;
+    transition: transform var(--ease-card);
   }
-  .exp:hover { padding-left: var(--space-6); }
   .exp:hover .e-title { color: var(--accent); }
-  .exp:hover .e-arrow { color: var(--accent); transform: translateX(3px); }
-  .e-body { min-width: 0; width: 100%; }
+  .exp:hover .e-arrow { transform: translateX(4px); }
+  .e-frame {
+    height: 600px;
+    overflow: hidden;
+    background: var(--line-2);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+  }
+  .e-thumb {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .e-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .e-video--horiz { display: none; }
+
+  /* Horizontal layout: swap to horizontal video when available */
+  :global(.exp-list[data-variant="horizontal"]) .e-video--horiz { display: block; }
+  :global(.exp-list[data-variant="horizontal"]) .e-video--main:has(+ .e-video--horiz) { display: none; }
+
+  /* Horizontal layout: full-width cards show full video, no cropping */
+  :global(.exp-list[data-variant="horizontal"]) .full-width .e-video { object-fit: contain; }
+
+  /* Vertical layout: full-width video for all cards */
+  :global(.exp-list:not([data-variant="horizontal"])) .e-frame { padding: 0; height: 540px; }
+  :global(.exp-list:not([data-variant="horizontal"])) .e-thumb { height: 100%; width: 100%; border-radius: 0; }
+  :global(.exp-list:not([data-variant="horizontal"])) .e-video { width: 100%; height: 100%; object-fit: cover; object-position: center -30px; }
+
+  /* Full-width: video fills width, height follows naturally, no cropping */
+  :global(.exp-list:not([data-variant="horizontal"])) .full-width { height: auto; background: none; }
+  :global(.exp-list:not([data-variant="horizontal"])) .full-width .e-video { width: 100%; height: auto; object-fit: contain; object-position: top; }
+  .e-placeholder {
+    width: 160px;
+    height: 100%;
+    background: var(--line);
+    border-radius: 8px;
+  }
+  .e-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-16);
+    margin-bottom: var(--space-4);
+  }
   .e-title {
-    font-size: var(--text-exp-title);
-    font-weight: 600;
+    font-size: var(--text-work-title);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
     color: var(--ink);
-    margin-bottom: 2px;
     transition: color var(--ease-default);
   }
   .e-desc {
-    font-size: var(--text-exp-desc);
+    font-size: var(--text-desc);
     color: var(--ink-2);
-    line-height: var(--leading-exp);
+    line-height: var(--leading-body);
   }
   .e-arrow {
-    color: var(--muted-2);
-    transition: color var(--ease-default), transform var(--ease-default);
+    color: var(--muted);
     flex-shrink: 0;
+    transition: color var(--ease-default), transform var(--ease-default);
+  }
+
+  @media (max-width: 600px) {
+    .e-title { font-size: 19px; }
   }
 </style>

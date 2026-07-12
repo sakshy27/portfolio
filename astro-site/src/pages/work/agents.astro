@@ -13,12 +13,15 @@ const sections = [
   title="Building the agent creation experience"
   kicker="New Feature · Work Project · Juspay"
   description="A deep dive into the agent creation space, shaping an experience for 1600+ employees at Juspay to build agents for their own workflows and work alongside them."
-  role="Product Designer"
-  timeline="2025"
-  platform="Web (Internal Tool)"
-  context="Juspay"
+  role="Solo Designer"
+  timeline="2026"
+  platform="New Feature"
+  platformLabel="Type"
+  platformClass="agents-type-meta"
+  context="Xyne Claw by Jupsay"
+  contextLabel="Product"
   sections={sections}
-  nextProject={{ href: "/work/dukaan", title: "Introducing Subscriptions on Dukaan" }}
+  nextProject={{ href: "/work/dukaan", title: "Next" }}
 >
 
   <div class="cs-cover agents-cover">
@@ -119,8 +122,10 @@ const sections = [
   .agents-section .sec-head {
     border-bottom-color: color-mix(in srgb, var(--ink) 15.6%, var(--bg));
   }
+  .agents-type-meta { margin-left: -40px; }
   .no-following-separator + .cs-section { border-top: 0; }
   #audience,
   #goal,
   #impact { border-top: 0; }
+  @media (max-width: 600px) { .agents-type-meta { margin-left: 0; } }
 </style>
