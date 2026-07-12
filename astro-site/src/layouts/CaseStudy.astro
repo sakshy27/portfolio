@@ -6,7 +6,10 @@ interface Props {
   role?: string;
   timeline?: string;
   platform?: string;
+  platformLabel?: string;
+  platformClass?: string;
   context?: string;
+  contextLabel?: string;
   sections?: { id: string; label: string }[];
   nextProject?: { href: string; title: string };
 }
@@ -18,7 +21,10 @@ const {
   role = 'Product Designer',
   timeline,
   platform,
+  platformLabel = 'Platform',
+  platformClass,
   context,
+  contextLabel = 'Context',
   sections = [],
   nextProject,
 } = Astro.props;
@@ -77,8 +83,8 @@ const {
     <div class="cs-meta">
       {role && <div><div class="meta-label">Role</div><div class="meta-value">{role}</div></div>}
       {timeline && <div><div class="meta-label">Timeline</div><div class="meta-value">{timeline}</div></div>}
-      {platform && <div><div class="meta-label">Platform</div><div class="meta-value">{platform}</div></div>}
-      {context && <div><div class="meta-label">Context</div><div class="meta-value" set:html={context} /></div>}
+      {platform && <div class={platformClass}><div class="meta-label">{platformLabel}</div><div class="meta-value">{platform}</div></div>}
+      {context && <div><div class="meta-label">{contextLabel}</div><div class="meta-value" set:html={context} /></div>}
     </div>
 
     {/* ─── Page content ─── */}

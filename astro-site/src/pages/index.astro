@@ -19,18 +19,18 @@ import Footer from '../components/Footer.astro';
       <SectionHead title="Selected work" count="04 projects" separator />
       <div class="work-list">
         <WorkCard
-          href="#"
+          href="/work/agents"
+          kicker="New Feature · Work Project · Juspay"
+          title="Building the agent creation experience"
+          desc="A deep dive into the agent creation space, shaping an experience for 1600+ employees at Juspay to build agents for their own workflows and work alongside them."
+          thumbImage="/images/agents.png"
+        />
+        <WorkCard
+          href="/work/tickets"
           kicker="New Feature · Work Project · Xyne Spaces by Juspay"
           title="Imagining ticket experience for human and agent shared workspace"
           desc="An end-to-end design of how humans and AI agents collaborate to resolve tickets in Xyne Spaces, an internal AI-powered workspace tool."
           thumbImage="/images/xyne-tickets.png"
-        />
-        <WorkCard
-          href="#"
-          kicker="Redesign · Work Project · Juspay Hyperswitch"
-          title="Revamping Invite Users Experience"
-          desc="A redesign of how users can invite their teamates onto their hyperswitch dashboard, making roles and access clear and easy to set up"
-          thumbImage="/images/hyperswitch-invite.png"
         />
         <WorkCard
           href="/work/dukaan"
@@ -57,11 +57,14 @@ import Footer from '../components/Footer.astro';
           href="https://splitfree-tbc.vercel.app/"
           title="Splitfree"
           desc="A better and free alternative to Splitwise."
+          previewSrc="/images/splitfree-preview.mov"
+          fullWidth
         />
         <ExperimentRow
           href="https://air-slice.vercel.app/"
           title="Air Slice"
           desc="Fruit Ninja reimagined with real-time hand tracking through your webcam."
+          previewSrc="/images/airslice-preview.mov"
         />
       </div>
     </section>
@@ -73,10 +76,16 @@ import Footer from '../components/Footer.astro';
 <style>
   .sec { padding: var(--space-48) 0; }
   .work-list { display: flex; flex-direction: column; gap: var(--space-72); }
-  .exp-list { display: flex; flex-direction: column; }
+
+  .exp-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-48);
+  }
 
   @media (max-width: 600px) {
     .sec { padding: var(--space-32) 0; }
     .work-list { gap: 40px; }
+    .exp-list { grid-template-columns: 1fr; gap: 40px; }
   }
 </style>

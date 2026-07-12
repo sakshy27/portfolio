@@ -1,0 +1,91 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'goal', label: 'Goal' },
+  { id: 'audience', label: 'Target Users' },
+  { id: 'scope', label: 'Scope' },
+];
+---
+
+<CaseStudy
+  title="Imagining ticket experience for human and agent shared workspace"
+  kicker="New Feature · Work Project · Juspay"
+  description="An end-to-end design of how humans and AI agents collaborate to resolve tickets in Xyne Spaces, an internal AI-powered workspace tool."
+  role="Solo Designer"
+  timeline="2025"
+  platform="New Feature"
+  platformLabel="Type"
+  platformClass="tickets-type-meta"
+  context="Xyne Spaces by Juspay"
+  contextLabel="Product"
+  sections={sections}
+  nextProject={{ href: "/work/dukaan", title: "Introducing Subscriptions on Dukaan" }}
+>
+
+  <div class="cs-cover tickets-cover">
+    <img src="/images/xyne-tickets.png" alt="Xyne Spaces ticketing experience" />
+  </div>
+
+  <section class="cs-section tickets-section" id="overview">
+    <div class="sec-head">
+      <h2>Overview</h2>
+    </div>
+    <div class="cs-body">
+      <p>Traditional ticketing systems were built for <strong>human collaboration</strong>. As AI agents become active teammates, the way teams create and manage work needs to evolve.</p>
+
+      <p>At Juspay, I designed the <strong>end-to-end ticketing experience</strong> for <strong>Xyne</strong>, our internal AI-powered work collaboration platform. The solution enables seamless collaboration between employees and AI agents&mdash;from ticket creation to work management across multiple views&mdash;through an <strong>intuitive, AI-native experience</strong>.</p>
+    </div>
+  </section>
+
+  <section class="cs-section tickets-section no-following-separator" id="goal">
+    <div class="sec-head">
+      <h2>Goal</h2>
+    </div>
+    <div class="cs-body">
+      <p>Design a <strong>simple, AI-native ticketing experience</strong> that enables employees to create, organize, and manage work effortlessly while supporting <strong>seamless collaboration between humans and AI agents</strong>.</p>
+    </div>
+  </section>
+
+  <section class="cs-section tickets-section no-following-separator" id="audience">
+    <div class="sec-head">
+      <h2>Target Users</h2>
+    </div>
+    <div class="cs-body">
+      <p>Designed for <strong>1,600+ Juspay employees</strong> across Product, Engineering, Design, Operations, Customer Success, and other internal teams using Xyne to manage their day-to-day work.</p>
+    </div>
+  </section>
+
+  <section class="cs-section tickets-section" id="scope">
+    <div class="sec-head">
+      <h2>Scope</h2>
+    </div>
+    <div class="cs-body">
+      <ul class="scope-list">
+        <li><strong>Ticket Creation</strong> &mdash; Flexible ticket creation with customizable fields and workflows.</li>
+        <li><strong>Ticket Details</strong> &mdash; A centralized workspace for collaboration, updates, and progress tracking.</li>
+        <li><strong>Ticket Management</strong> &mdash; Organize work across List, Board, and Calendar views.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="nda-banner">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+    This project is under NDA. Happy to discuss in detail on call.
+  </div>
+
+</CaseStudy>
+
+<style is:global>
+  .tickets-cover { aspect-ratio: unset; height: auto; }
+  .tickets-cover img { width: 100%; height: auto; object-fit: unset; }
+  .tickets-section .sec-head { border-bottom-color: color-mix(in srgb, var(--ink) 15.6%, var(--bg)); }
+  .tickets-type-meta { margin-left: -12px; }
+  .no-following-separator + .cs-section, #goal, #audience, #scope { border-top: 0; }
+  .scope-list { margin: 0; padding-left: 1.25em; }
+  .scope-list li + li { margin-top: 10px; }
+  .nda-banner { display: flex; align-items: center; gap: 10px; margin-top: var(--space-32); padding: var(--space-16) 20px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-md); font-size: var(--text-desc); color: var(--ink-2); }
+  .nda-banner svg { flex-shrink: 0; color: rgb(59, 130, 246); }
+  @media (max-width: 600px) { .tickets-type-meta { margin-left: 0; } }
+</style>
