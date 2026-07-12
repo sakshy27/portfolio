@@ -52,13 +52,12 @@ import Footer from '../components/Footer.astro';
     <!-- Claude experiments -->
     <section class="sec" id="ai-builds">
       <SectionHead title="Built with Claude" count="02 experiments" separator />
-      <div class="exp-list" id="exp-list">
+      <div class="exp-list">
         <ExperimentRow
           href="https://splitfree-tbc.vercel.app/"
           title="Splitfree"
           desc="A better and free alternative to Splitwise."
-          previewSrc="/images/splitfree2.mov"
-          horizontalPreviewSrc="/images/splitfree-preview.mov"
+          previewSrc="/images/splitfree-preview.mov"
           fullWidth
         />
         <ExperimentRow
@@ -71,106 +70,22 @@ import Footer from '../components/Footer.astro';
     </section>
   </main>
 
-  <!-- Variant switcher panel -->
-  <div class="variant-panel">
-    <div class="vp-label">Layout</div>
-    <div class="vp-buttons">
-      <button class="vp-btn active" data-variant="vertical">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <rect x="2" y="2" width="12" height="4" rx="1" fill="currentColor"/>
-          <rect x="2" y="8" width="12" height="4" rx="1" fill="currentColor" opacity="0.35"/>
-        </svg>
-        Vertical
-      </button>
-      <button class="vp-btn" data-variant="horizontal">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <rect x="2" y="2" width="5" height="12" rx="1" fill="currentColor"/>
-          <rect x="9" y="2" width="5" height="12" rx="1" fill="currentColor" opacity="0.35"/>
-        </svg>
-        Horizontal
-      </button>
-    </div>
-  </div>
-
   <Footer />
 </Base>
-
-<script>
-  const list = document.getElementById('exp-list');
-  const btns = document.querySelectorAll<HTMLButtonElement>('.vp-btn');
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const variant = btn.getAttribute('data-variant') ?? 'vertical';
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (list) list.setAttribute('data-variant', variant);
-    });
-  });
-</script>
 
 <style>
   .sec { padding: var(--space-48) 0; }
   .work-list { display: flex; flex-direction: column; gap: var(--space-72); }
 
-  .exp-list { display: flex; flex-direction: column; gap: var(--space-72); }
-  .exp-list[data-variant="horizontal"] {
+  .exp-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-48);
   }
 
-  /* Variant panel */
-  .variant-panel {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 12px 14px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .vp-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .vp-buttons {
-    display: flex;
-    gap: 6px;
-  }
-  .vp-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 7px;
-    border: 1px solid var(--line);
-    background: transparent;
-    font-size: 13px;
-    color: var(--ink-2);
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .vp-btn:hover { background: var(--line-2); color: var(--ink); }
-  .vp-btn.active {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
-  }
-
   @media (max-width: 600px) {
     .sec { padding: var(--space-32) 0; }
     .work-list { gap: 40px; }
-    .exp-list { gap: 40px; }
-    .exp-list[data-variant="horizontal"] { grid-template-columns: 1fr; }
-    .variant-panel { bottom: 16px; right: 16px; }
+    .exp-list { grid-template-columns: 1fr; gap: 40px; }
   }
 </style>

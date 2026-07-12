@@ -4,11 +4,10 @@ interface Props {
   title: string;
   desc: string;
   previewSrc?: string;
-  horizontalPreviewSrc?: string;
   fullWidth?: boolean;
 }
 
-const { href, title, desc, previewSrc, horizontalPreviewSrc, fullWidth } = Astro.props;
+const { href, title, desc, previewSrc, fullWidth } = Astro.props;
 ---
 
 <a href={href} class="exp" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
@@ -18,9 +17,6 @@ const { href, title, desc, previewSrc, horizontalPreviewSrc, fullWidth } = Astro
         <video src={previewSrc} autoplay loop muted playsinline class="e-video e-video--main" />
       ) : (
         <div class="e-placeholder"></div>
-      )}
-      {horizontalPreviewSrc && (
-        <video src={horizontalPreviewSrc} autoplay loop muted playsinline class="e-video e-video--horiz" />
       )}
     </div>
   </div>
@@ -64,23 +60,7 @@ const { href, title, desc, previewSrc, horizontalPreviewSrc, fullWidth } = Astro
     object-position: top;
     display: block;
   }
-  .e-video--horiz { display: none; }
-
-  /* Horizontal layout: swap to horizontal video when available */
-  :global(.exp-list[data-variant="horizontal"]) .e-video--horiz { display: block; }
-  :global(.exp-list[data-variant="horizontal"]) .e-video--main:has(+ .e-video--horiz) { display: none; }
-
-  /* Horizontal layout: full-width cards show full video, no cropping */
-  :global(.exp-list[data-variant="horizontal"]) .full-width .e-video { object-fit: contain; }
-
-  /* Vertical layout: full-width video for all cards */
-  :global(.exp-list:not([data-variant="horizontal"])) .e-frame { padding: 0; height: 540px; }
-  :global(.exp-list:not([data-variant="horizontal"])) .e-thumb { height: 100%; width: 100%; border-radius: 0; }
-  :global(.exp-list:not([data-variant="horizontal"])) .e-video { width: 100%; height: 100%; object-fit: cover; object-position: center -30px; }
-
-  /* Full-width: video fills width, height follows naturally, no cropping */
-  :global(.exp-list:not([data-variant="horizontal"])) .full-width { height: auto; background: none; }
-  :global(.exp-list:not([data-variant="horizontal"])) .full-width .e-video { width: 100%; height: auto; object-fit: contain; object-position: top; }
+  .full-width .e-video { object-fit: contain; }
   .e-placeholder {
     width: 160px;
     height: 100%;
