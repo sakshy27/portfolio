@@ -4,15 +4,14 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
 const sections = [
   { id: 'overview', label: 'Overview' },
   { id: 'goal', label: 'Goal' },
-  { id: 'audience', label: 'Target Users' },
   { id: 'scope', label: 'Scope' },
 ];
 ---
 
 <CaseStudy
-  title="Imagining ticket experience for human and agent shared workspace"
+  title="Designing a Flexible Ticketing Experience for Xyne Spaces"
   kicker="New Feature · Work Project · Juspay"
-  description="An end-to-end design of how humans and AI agents collaborate to resolve tickets in Xyne Spaces, an internal AI-powered workspace tool."
+  description="Creating a ticketing system that adapts to different team workflows within Xyne Spaces."
   role="Solo Designer"
   timeline="2025"
   platform="New Feature"
@@ -33,9 +32,9 @@ const sections = [
       <h2>Overview</h2>
     </div>
     <div class="cs-body">
-      <p>Traditional ticketing systems were built for <strong>human collaboration</strong>. As AI agents become active teammates, the way teams create and manage work needs to evolve.</p>
+      <p>As organizations grow, so do the ways teams manage work. Different functions develop different processes, priorities, and ways of tracking progress, making a one-size-fits-all ticketing experience difficult to scale.</p>
 
-      <p>At Juspay, I designed the <strong>end-to-end ticketing experience</strong> for <strong>Xyne</strong>, our internal AI-powered work collaboration platform. The solution enables seamless collaboration between employees and AI agents&mdash;from ticket creation to work management across multiple views&mdash;through an <strong>intuitive, AI-native experience</strong>.</p>
+      <p>Within <strong>Xyne Spaces</strong>, Juspay's AI-powered Work OS, I designed the ticketing experience to balance <strong>flexibility with simplicity</strong>. The solution allows teams to <strong>create, organize, and manage work</strong> using workflows that suit their needs while preserving a consistent experience across the platform.</p>
     </div>
   </section>
 
@@ -44,16 +43,7 @@ const sections = [
       <h2>Goal</h2>
     </div>
     <div class="cs-body">
-      <p>Design a <strong>simple, AI-native ticketing experience</strong> that enables employees to create, organize, and manage work effortlessly while supporting <strong>seamless collaboration between humans and AI agents</strong>.</p>
-    </div>
-  </section>
-
-  <section class="cs-section tickets-section no-following-separator" id="audience">
-    <div class="sec-head">
-      <h2>Target Users</h2>
-    </div>
-    <div class="cs-body">
-      <p>Designed for <strong>1,600+ Juspay employees</strong> across Product, Engineering, Design, Operations, Customer Success, and other internal teams using Xyne to manage their day-to-day work.</p>
+      <p>Design a <strong>flexible ticketing experience</strong> that allows different teams to manage work using their own workflows, while keeping the experience <strong>simple, consistent, and easy to adopt</strong>.</p>
     </div>
   </section>
 
@@ -82,7 +72,7 @@ const sections = [
   .tickets-cover img { width: 100%; height: auto; object-fit: unset; }
   .tickets-section .sec-head { border-bottom-color: color-mix(in srgb, var(--ink) 15.6%, var(--bg)); }
   .tickets-type-meta { margin-left: -12px; }
-  .no-following-separator + .cs-section, #goal, #audience, #scope { border-top: 0; }
+  .no-following-separator + .cs-section, #goal, #scope { border-top: 0; }
   .scope-list { margin: 0; padding-left: 1.25em; }
   .scope-list li + li { margin-top: 10px; }
   .nda-banner { display: flex; align-items: center; gap: 10px; margin-top: var(--space-32); padding: var(--space-16) 20px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-md); font-size: var(--text-desc); color: var(--ink-2); }
